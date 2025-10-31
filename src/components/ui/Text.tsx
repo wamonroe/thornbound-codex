@@ -11,10 +11,11 @@ export type TextProps = {
   align?: TextAlign;
   size?: TextSize;
   muted?: boolean;
+  italic?: boolean;
 };
 
-const Text = ({ align, size = "medium", muted = false, children }: TextProps) => {
-  const className = classNames(getTextAlign(align), getTextSize(size));
+const Text = ({ align, size = "medium", muted, italic, children }: TextProps) => {
+  const className = classNames(getTextAlign(align), getTextSize(size), { italic: italic });
   return <p className={className}>{muted ? <Muted size={size}>{children}</Muted> : children}</p>;
 };
 

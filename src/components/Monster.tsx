@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import type { ReactNode } from "react";
 
+import type { MonsterType } from "@/components/MonsterRole";
 import Em from "@/components/ui/Em";
 import Markdown from "@/components/ui/Markdown";
 import SmallCaps from "@/components/ui/SmallCaps";
@@ -28,20 +29,6 @@ const tableDiceIcon = {
   4: DiceFive,
   5: DiceSix
 };
-
-type MonsterType =
-  | "lurker"
-  | "predator"
-  | "brute"
-  | "marauder"
-  | "swarmer"
-  | "protector"
-  | "overseer"
-  | "trickster"
-  | "tactician"
-  | "skirmisher"
-  | "blaster"
-  | "marksman";
 
 type MonsterProps = {
   id?: string;
