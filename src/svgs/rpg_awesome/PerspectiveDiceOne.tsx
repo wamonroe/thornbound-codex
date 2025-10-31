@@ -7,7 +7,7 @@ type PerspectiveDiceOneProps = {
 };
 
 const PerspectiveDiceOne = ({ size }: PerspectiveDiceOneProps) => {
-  const svgCss = classNames(getIconSize(size));
+  const svgCss = classNames("inline", getIconSize(size));
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
