@@ -9,13 +9,13 @@ type PathCardProps = {
 
 const PathCard = ({ name, description, icon }: PathCardProps) => {
   return (
-    <div className="pt-4 flex flex-col">
-      <div className="relative flex-1 flex flex-col bg-panel-1 border border-muted shadow pt-6 px-2 pb-2 rounded-md space-y-2">
-        <div className="absolute h-8 -top-4 left-1/2 -translate-x-1/2 bg-panel-3 border border-muted shadow w-9/12 rounded-md flex items-center justify-center font-bold">
+    <div className="flex flex-col pt-4">
+      <div className="relative flex flex-1 flex-col space-y-2 rounded-md border border-muted bg-panel-1 px-2 pt-6 pb-2 shadow">
+        <div className="absolute -top-4 left-1/2 flex h-8 w-9/12 -translate-x-1/2 items-center justify-center rounded-md border border-muted bg-panel-3 font-bold shadow">
           <div className="font-bold uppercase">{name}</div>
         </div>
         <div className={classNames("flex items-center justify-center")}>{icon}</div>
-        <div className="uppercase text-center text-sm">{description}</div>
+        <div className="text-center text-sm uppercase">{description}</div>
       </div>
     </div>
   );

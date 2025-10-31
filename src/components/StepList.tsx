@@ -1,5 +1,6 @@
+import { Children, type ReactElement, type ReactNode, cloneElement, isValidElement } from "react";
+
 import Strong from "@/components/ui/Strong";
-import { Children, cloneElement, isValidElement, type ReactElement, type ReactNode } from "react";
 
 type StepListItemProps = {
   number?: number;
@@ -8,9 +9,9 @@ type StepListItemProps = {
 
 const StepListItem = ({ number, children }: StepListItemProps) => {
   return (
-    <li className="pl-7 pr-2 py-1 min-h-10 bg-panel-1 border border-base rounded-sm relative">
+    <li className="relative min-h-10 rounded-sm border border-base bg-panel-1 py-1 pr-2 pl-7">
       {number !== undefined && (
-        <div className="flex items-center justify-center size-8 bg-panel-3 rounded-sm absolute -left-4 top-1/2 -translate-y-1/2">
+        <div className="absolute top-1/2 -left-4 flex size-8 -translate-y-1/2 items-center justify-center rounded-sm bg-panel-3">
           <Strong>{number}</Strong>
         </div>
       )}
@@ -33,7 +34,7 @@ const StepList = ({ children }: StepListProps) => {
         })
       : child
   );
-  return <ol className="px-6 space-y-4">{items}</ol>;
+  return <ol className="space-y-4 px-6">{items}</ol>;
 };
 
 StepList.Item = StepListItem;

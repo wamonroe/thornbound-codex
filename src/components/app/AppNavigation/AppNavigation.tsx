@@ -7,11 +7,11 @@ type VerticalNavProps = {
 
 const VerticalNav = ({ navigation, onSelect }: VerticalNavProps) => {
   return (
-    <div className="relative flex grow flex-col overflow-y-auto border-r px-6 gap-5 border-muted bg-panel-1">
-      <div className="h-16 shrink-0 text-heading-color font-heading flex flex-col justify-center">
+    <div className="relative flex grow flex-col gap-5 overflow-y-auto border-r border-muted bg-panel-1 px-6">
+      <div className="flex h-16 shrink-0 flex-col justify-center font-heading text-heading-color">
         <div>
-          <span className="font-heading font-bold text-lg">Grimwild</span>
-          <span className="text-muted-color text-base ml-2">Community Hub</span>
+          <span className="font-heading text-lg font-bold">Grimwild</span>
+          <span className="ml-2 text-base text-muted-color">Community Hub</span>
         </div>
       </div>
       <nav className="relative flex flex-1 flex-col">

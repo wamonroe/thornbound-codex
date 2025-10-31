@@ -1,9 +1,10 @@
-import Link from "@/components/app/AppNavigation/Link";
-import { faBook, faChevronRight, type IconDefinition } from "@fortawesome/free-solid-svg-icons";
+import { type IconDefinition, faBook, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
 import classNames from "classnames";
 import { useLocation } from "react-router";
+
+import Link from "@/components/app/AppNavigation/Link";
 
 type NestedAppNavigationItem = {
   name: string;

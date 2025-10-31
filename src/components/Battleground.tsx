@@ -1,11 +1,13 @@
+import classNames from "classnames";
+
 import ChallengeSuspense from "@/components/ChallengeSuspense";
 import Line from "@/components/ui/Line";
 import Muted from "@/components/ui/Muted";
 import SmallCaps from "@/components/ui/SmallCaps";
 import Table from "@/components/ui/Table";
 import Text from "@/components/ui/Text";
+
 import CrossedSwords from "@/svgs/rpg_awesome/CrossedSwords";
-import classNames from "classnames";
 
 type BattlegroundThreat = {
   name: string;
@@ -64,13 +66,13 @@ const Battleground = ({ title, features, threats, enemies }: BattlegroundProps) 
 
   return (
     <div className={containerCss}>
-      <div className="flex justify-between w-full items-center bg-solid text-solid-color rounded-t px-4 py-1 font-bold">
+      <div className="flex w-full items-center justify-between rounded-t text-solid-color bg-solid px-4 py-1 font-bold">
         <div>
           <SmallCaps>{title}</SmallCaps>
         </div>
         <CrossedSwords />
       </div>
-      <div className="bg-panel-1 rounded-b">
+      <div className="rounded-b bg-panel-1">
         {(hasFeatures || hasThreats) && (
           <div className="p-2">
             <Table cellPadding="tight" variant="blank">
@@ -107,7 +109,7 @@ const Battleground = ({ title, features, threats, enemies }: BattlegroundProps) 
           </div>
         )}
         {hasEnemys && (
-          <div className="flex flex-col px-4 py-2 space-y-1">
+          <div className="flex flex-col space-y-1 px-4 py-2">
             {enemies.map((enemy) => (
               <Enemy enemy={enemy} key={enemy.name} />
             ))}

@@ -40,7 +40,7 @@ const Navigation = ({ navigation, open, onClose }: NavigationProps) => {
             </div>
           </TransitionChild>
 
-          <div className="relative flex grow flex-col overflow-y-auto border-l p-6 gap-5 border-muted bg-panel-1">
+          <div className="relative flex grow flex-col gap-5 overflow-y-auto border-l border-muted bg-panel-1 p-6">
             <nav className="flex flex-1 flex-col bg-panel-1">
               <ul role="list" className="flex flex-1 flex-col gap-y-2">
                 {navigation.map((item) => (
@@ -71,7 +71,7 @@ const Item = ({ item, onClick }: ItemProps) => {
     <li className="flex flex-col">
       <Link
         to={item.anchor}
-        className="block text-base-color hover:font-bold p-2"
+        className="block p-2 text-base-color hover:font-bold"
         onClick={onClick}
       >
         {item.name}
@@ -82,7 +82,7 @@ const Item = ({ item, onClick }: ItemProps) => {
             <li key={`${child.name}-${child.anchor}`}>
               <Link
                 to={child.anchor}
-                className="block text-muted-color hover:font-bold py-2 pl-7 pr-2"
+                className="block py-2 pr-2 pl-7 text-muted-color hover:font-bold"
                 onClick={onClick}
               >
                 {child.name}

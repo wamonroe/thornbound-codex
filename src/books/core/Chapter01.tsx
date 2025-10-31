@@ -8,11 +8,12 @@ import Move from "@/components/ui/Move";
 import Muted from "@/components/ui/Muted";
 import Panel from "@/components/ui/Panel";
 import Section from "@/components/ui/Section";
-
 import Strong from "@/components/ui/Strong";
 import StrongEm from "@/components/ui/StrongEm";
 import Table from "@/components/ui/Table";
 import Text from "@/components/ui/Text";
+
+import PerspectiveDiceOne from "@/svgs/rpg_awesome/PerspectiveDiceOne";
 
 const navigation: PageNavigationItem[] = [
   { name: "What is Grimwild?", anchor: "#what-is-grimwild" },
@@ -614,8 +615,9 @@ const Chapter01 = () => {
       </Heading>
       <Text>
         <Strong allCaps>Pools</Strong>. A set of d6s used to track things like time, resources, or
-        effort. When triggered (🎲), roll the pool and <Strong>drop</Strong> 1d for each 1-3 result.
-        At 0d, the pool depletes and the fiction changes.
+        effort. When triggered (<PerspectiveDiceOne size="large" />
+        ), roll the pool and <Strong>drop</Strong> 1d for each 1-3 result. At 0d, the pool depletes
+        and the fiction changes.
       </Text>
       <Text>
         The size of a pool is <Strong>4d</Strong>/<Em>short</Em>, <Strong>6d</Strong>/<Em>mid</Em>,
@@ -646,20 +648,24 @@ const Chapter01 = () => {
         listed below. Others are found throughout the book.
       </Text>
       <Text>
-        <Strong smallCaps>Timer Pools</Strong>. Events unfolding in the background. 🎲 Key moments,
-        passing, or a few PCs take action. <Muted>6d Reinforcements Arrive, 8d Sunrise.</Muted>
+        <Strong smallCaps>Timer Pools</Strong>. Events unfolding in the background.{" "}
+        <PerspectiveDiceOne size="large" /> Key moments, passing, or a few PCs take action.{" "}
+        <Muted>6d Reinforcements Arrive, 8d Sunrise.</Muted>
       </Text>
       <Text>
-        <Strong smallCaps>Pressure Pools</Strong>. Threats becoming more likely. 🎲 Impact moves,
-        major events, or threat level. <Muted>6d Lookouts Spot You, 8d Corruption Grows.</Muted>
+        <Strong smallCaps>Pressure Pools</Strong>. Threats becoming more likely.{" "}
+        <PerspectiveDiceOne size="large" /> Impact moves, major events, or threat level.{" "}
+        <Muted>6d Lookouts Spot You, 8d Corruption Grows.</Muted>
       </Text>
       <Text>
-        <Strong smallCaps>Task Pools</Strong>. Effort to overcome tasks. 🎲 Task progress, usually
-        an action roll. <Muted>4d Barroom Brawl, 6d Tracking Quarry, 8d Escape the Guards.</Muted>
+        <Strong smallCaps>Task Pools</Strong>. Effort to overcome tasks.{" "}
+        <PerspectiveDiceOne size="large" /> Task progress, usually an action roll.{" "}
+        <Muted>4d Barroom Brawl, 6d Tracking Quarry, 8d Escape the Guards.</Muted>
       </Text>
       <Text>
-        <Strong smallCaps>Resource Pools</Strong>. Quantity of something precious. 🎲 The resource
-        sees significant usage. <Muted>4d Food Supplies, 8d Manpower Left.</Muted>
+        <Strong smallCaps>Resource Pools</Strong>. Quantity of something precious.{" "}
+        <PerspectiveDiceOne size="large" /> The resource sees significant usage.{" "}
+        <Muted>4d Food Supplies, 8d Manpower Left.</Muted>
       </Text>
       <Text>
         <Em>
@@ -1205,7 +1211,7 @@ const Chapter01 = () => {
         <Strong allCaps>Power Pools</Strong>. The power of some talents or items, rolled in place of
         a stat. The same roll determines the outcome and drops dice from the pool. Even if it's
         automatically successful, still roll the pool when used and drop dice. You must roll all
-        dice in the pool. 🎲 The talent or item is used.{" "}
+        dice in the pool. <PerspectiveDiceOne size="large" /> The talent or item is used.{" "}
         <Muted>4d Fireball Wand, 6d Cleric domain.</Muted>
       </Text>
       <Line color="muted" />

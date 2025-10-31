@@ -1,9 +1,12 @@
-import Page, { type PageNavigationItem } from "@/components/app/Page";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import CoreTalent from "@/components/CoreTalent";
 import Path from "@/components/Path";
 import PathCard from "@/components/PathCard";
 import StepList from "@/components/StepList";
 import Talent from "@/components/Talent";
+import Page, { type PageNavigationItem } from "@/components/app/Page";
 import Em from "@/components/ui/Em";
 import Grid from "@/components/ui/Grid";
 import Heading from "@/components/ui/Heading";
@@ -18,6 +21,7 @@ import StrongEm from "@/components/ui/StrongEm";
 import Table from "@/components/ui/Table";
 import Tag from "@/components/ui/Tag";
 import Text from "@/components/ui/Text";
+
 import BatteredAxe from "@/svgs/game_icons/BatteredAxe";
 import Cowled from "@/svgs/game_icons/Cowled";
 import DoubleShot from "@/svgs/game_icons/DoubleShot";
@@ -30,8 +34,6 @@ import SpellBook from "@/svgs/game_icons/SpellBook";
 import SwordsEmblem from "@/svgs/game_icons/SwordsEmblem";
 import TemplarShield from "@/svgs/game_icons/TemplarShield";
 import WarlockEye from "@/svgs/game_icons/WarlockEye";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const navigation: PageNavigationItem[] = [
   { name: "Starting a Campaign", anchor: "#starting-a-campaign" },

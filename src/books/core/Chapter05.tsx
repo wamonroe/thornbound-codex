@@ -1,6 +1,6 @@
-import Page from "@/components/app/Page";
 import Challenge from "@/components/Challenge";
 import Monster from "@/components/Monster";
+import Page, { type PageNavigationItem } from "@/components/app/Page";
 import Em from "@/components/ui/Em";
 import Grid from "@/components/ui/Grid";
 import Heading from "@/components/ui/Heading";
@@ -8,10 +8,117 @@ import List from "@/components/ui/List";
 import Strong from "@/components/ui/Strong";
 import Text from "@/components/ui/Text";
 
+const navigation: PageNavigationItem[] = [
+  {
+    name: "Painting Monstrous Scenes",
+    anchor: "#painting-monstrous-scenes"
+  },
+  {
+    name: "Monster Blocks",
+    anchor: "#monster-blocks-a-to-z",
+    children: [
+      { name: "Basilisk", anchor: "#basilisk" },
+      { name: "Behir", anchor: "#behir" },
+      { name: "Carcass Crawler", anchor: "#carcass-crawler" },
+      { name: "Chimera", anchor: "#chimera" },
+      { name: "Chuul", anchor: "#chull" },
+      { name: "Cockatrice", anchor: "#cockatrice" },
+      { name: "Couatl", anchor: "#couatl" },
+      { name: "Cyclops", anchor: "#cyclops" },
+      { name: "Demon, Balor", anchor: "#demon-balor" },
+      { name: "Demon, Glabrezu", anchor: "#demon-glabrezu" },
+      { name: "Demon, Vrock", anchor: "#demon-vrock" },
+      { name: "Devil, Barbed", anchor: "#devil-barbed" },
+      { name: "Devil, Chain", anchor: "#devil-chain" },
+      { name: "Devil, Horned", anchor: "#devil-horned" },
+      { name: "Devil, Imp", anchor: "#devil-imp" },
+      { name: "Dire Bear", anchor: "#dire-bear" },
+      { name: "Dire Centipede", anchor: "#dire-centipede" },
+      { name: "Dire Crab", anchor: "#dire-crab" },
+      { name: "Dire Crocodile", anchor: "#dire-crocodile" },
+      { name: "Dire Eagle", anchor: "#dire-eagle" },
+      { name: "Dire Shark", anchor: "#dire-shark" },
+      { name: "Dire Spider", anchor: "#dire-spider" },
+      { name: "Dire Wolf", anchor: "#dire-wolf" },
+      { name: "Dislocation Beast", anchor: "#dislocation-beast" },
+      { name: "Doppelganger", anchor: "#doppelganger" },
+      { name: "Dragon", anchor: "#dragon" },
+      { name: "Elemental, Air", anchor: "#elemental-air" },
+      { name: "Elemental, Earth", anchor: "#elemental-earth" },
+      { name: "Elemental, Fire", anchor: "#elemental-fire" },
+      { name: "Elemental, Water", anchor: "#elemental-water" },
+      { name: "Ettin", anchor: "#ettin" },
+      { name: "Ettercap", anchor: "#ettercap" },
+      { name: "Fey, Dryad", anchor: "#fey-dryad" },
+      { name: "Fey, Faery", anchor: "#fey-faery" },
+      { name: "Fey, Redcap", anchor: "#fey-redcap" },
+      { name: "Fey, Satyr", anchor: "#fey-satyr" },
+      { name: "Gargoyle", anchor: "#gargoyle" },
+      { name: "Gelatinous Cube", anchor: "#gelatinous-cube" },
+      { name: "Genie", anchor: "#genie" },
+      { name: "Gibbering Mouther", anchor: "#gibbering-mouther" },
+      { name: "Golem", anchor: "#golem" },
+      { name: "Gorgon", anchor: "#gorgon" },
+      { name: "Grick", anchor: "#grick" },
+      { name: "Griffon", anchor: "#griffon" },
+      { name: "Giant, Fire", anchor: "#giant-fire" },
+      { name: "Giant, Frost", anchor: "#giant-frost" },
+      { name: "Giant, Hill", anchor: "#giant-hill" },
+      { name: "Giant, Storm", anchor: "#giant-storm" },
+      { name: "Hag, Night", anchor: "#hag-night" },
+      { name: "Hag, Sea", anchor: "#hag-sea" },
+      { name: "Hag, Storm", anchor: "#hag-storm" },
+      { name: "Hag, Swamp", anchor: "#hag-swamp" },
+      { name: "Hell Hound", anchor: "#hell-hound" },
+      { name: "Hippogriff", anchor: "#hippogriff" },
+      { name: "Hydra", anchor: "#hydra" },
+      { name: "Lamia", anchor: "#lamia" },
+      { name: "Manticore", anchor: "#manticore" },
+      { name: "Medusa", anchor: "#medusa" },
+      { name: "Mimic", anchor: "#mimic" },
+      { name: "Minotaur", anchor: "#minotaur" },
+      { name: "Naga", anchor: "#naga" },
+      { name: "Nightmare", anchor: "#nightmare" },
+      { name: "Ochre Jelly", anchor: "#ochre-jelly" },
+      { name: "Ogre", anchor: "#ogre" },
+      { name: "Otyugh", anchor: "#otyugh" },
+      { name: "Owlbear", anchor: "#owlbear" },
+      { name: "Pegasus", anchor: "#pegasus" },
+      { name: "Phoenix", anchor: "#phoenix" },
+      { name: "Rakshasa", anchor: "#rakshasa" },
+      { name: "Remorhaz", anchor: "#remorhaz" },
+      { name: "Roc", anchor: "#roc" },
+      { name: "Roper", anchor: "#roper" },
+      { name: "Rustmaw", anchor: "#rustmaw" },
+      { name: "Shambling Mound", anchor: "#shambling-mound" },
+      { name: "Sphinx", anchor: "#sphinx" },
+      { name: "Troll", anchor: "#troll" },
+      { name: "Underscourge", anchor: "#underscourge" },
+      { name: "Undead, Ghast", anchor: "#undead-ghast" },
+      { name: "Undead, Ghost", anchor: "#undead-ghost" },
+      { name: "Undead, Lich", anchor: "#undead-lich" },
+      { name: "Undead, Vampire", anchor: "#undead-vampire" },
+      { name: "Undead, Wight", anchor: "#undead-wight" },
+      { name: "Undead, Wraith", anchor: "#undead-wraith" },
+      { name: "Unicorn", anchor: "#unicorn" },
+      { name: "Will-o'-wisp", anchor: "#will-o-wisp" },
+      { name: "Wyvern", anchor: "#wyvern" },
+      { name: "Yeti", anchor: "#yeti" }
+    ]
+  }
+];
+
 const Chapter05 = () => {
   return (
-    <Page bookTitle="Grimwild Community Edition" title="Monsters" pretitle="Chapter 5:">
-      <Heading level={2}>Painting Monstrous Scenes</Heading>
+    <Page
+      bookTitle="Grimwild Community Edition"
+      title="Monsters"
+      pretitle="Chapter 5:"
+      navigation={navigation}
+    >
+      <Heading level={2} id="painting-monstrous-scenes">
+        Painting Monstrous Scenes
+      </Heading>
       <Text>
         This chapter features nearly 100 monster blocks designed to help you, the GM, create vivid
         and engaging encounters. Each block emphasizes color, sensory details, instincts,
@@ -33,7 +140,7 @@ const Chapter05 = () => {
         are just one interpretation of what these monsters might be. Change whatever you like; it
         won't break a thing.
       </Text>
-      <Heading level={3}>NOTES ON MONSTER BLOCKS</Heading>
+      <Heading level={3}>Notes on Monster Blocks</Heading>
       <List variant="unordered">
         <List.Item>
           <Strong>Sensories</Strong>: Each entry lists colors, sights, sounds, and smells tied to
@@ -73,8 +180,11 @@ const Chapter05 = () => {
           customization.
         </List.Item>
       </List>
-      <Heading level={2}>MONSTER BLOCKS (A-Z)</Heading>
+      <Heading level={2} id="monster-blocks-a-to-z">
+        Monster Blocks (A-Z)
+      </Heading>
       <Monster
+        id="basilisk"
         name="Basilisk"
         type="lurker"
         colors={["scaly green", "mossy brown", "rocky gray"]}
@@ -88,15 +198,16 @@ const Chapter05 = () => {
         smell="chalky scent of ground stone, desiccated air"
         tableTitle="Hiding Spots"
         tableRows={[
-          ["Beneath a crumbling, but still-used bridge."],
-          ["Within the rotting carcass of a fallen dragon."],
-          ["On the fifth floor of a derelict watchtower."],
-          ["In a field full of half-eaten bear statues."],
-          ["Within a maze of rusted, echoing pipes."],
-          ["Among the twisted roots of a giant tree."]
+          ["Beneath a crumbling, but still-used **bridge**."],
+          ["Within the **rotting carcass** of a fallen dragon."],
+          ["On the fifth floor of a **derelict watchtower**."],
+          ["In a field full of half-eaten **bear statues**."],
+          ["Within a maze of rusted, echoing **pipes**."],
+          ["Among the **twisted roots** of a giant tree."]
         ]}
       />
       <Monster
+        id="behir"
         name="Behir"
         type="predator"
         colors={["scaly gray", "stormy gray", "azure blue"]}
@@ -110,15 +221,16 @@ const Chapter05 = () => {
         smell="metallic tang, faint acrid smell, scorched hide"
         tableTitle="Unearthed By..."
         tableRows={[
-          ["Landslide during a massive thunderstorm."],
-          ["Generational flood wiping out whole villages."],
-          ["Earthquake toppling castle walls."],
-          ["Collapse of a silver mine, forcing it to flee."],
-          ["Lich's minions dug too deep."],
-          ["Adventurers left an almost empty dungeon."]
+          ["**Landslide** during a massive thunderstorm."],
+          ["**Generational flood** wiping out whole villages."],
+          ["**Earthquake** toppling castle walls."],
+          ["Collapse of a **silver mine**, forcing it to flee."],
+          ["Lich's minions **dug** too deep."],
+          ["Adventurers left an **almost** empty dungeon."]
         ]}
       />
       <Monster
+        id="carcass-crawler"
         name="Carcass Crawler"
         type="brute"
         colors={["rotten brown", "dull olive", "vile green"]}
@@ -132,15 +244,16 @@ const Chapter05 = () => {
         smell="rancid stench, sickly-sweet venom, mold and rot"
         tableTitle="Feeding Grounds"
         tableRows={[
-          ["The remnants of a horrific battle."],
-          ["The result of a successful death cult."],
-          ["A recently thawed graveyard."],
-          ["A plague that killed herds of farm animals."],
-          ["A fleet of invasion ships dashed against rocks."],
-          ["Mass sacrifices to it, worshipped as a god."]
+          ["The remnants of a **horrific battle**."],
+          ["The result of a successful **death cult**."],
+          ["A recently thawed **graveyard**."],
+          ["A **plague** that killed herds of farm animals."],
+          ["A **fleet** of invasion ships dashed against rocks."],
+          ["Mass **sacrifices** to it, worshipped as a god."]
         ]}
       />
       <Monster
+        id="chimera"
         name="Chimera"
         type="marauder"
         colors={["dark brown", "burnt umber", "fiery red"]}
@@ -164,6 +277,7 @@ const Chapter05 = () => {
         ]}
       />
       <Monster
+        id="chull"
         name="Chuul"
         type="predator"
         colors={["crustacean brown", "deep yellow", "swamp green"]}
@@ -186,6 +300,7 @@ const Chapter05 = () => {
         ]}
       />
       <Monster
+        id="cockatrice"
         name="Cockatrice"
         type="swarmer"
         colors={["rust orange", "feathered brown", "dusky gold"]}
@@ -199,15 +314,16 @@ const Chapter05 = () => {
         smell="mismatched smell of feathers and scales"
         tableTitle="Crucible Migrations"
         tableRows={[
-          ["Onto an island, home to a monastery."],
-          ["Into a small hamlet, everyone stuck indoors."],
-          ["Into a valley, an important trade crossroad."],
-          ["Throughout a city, absolute chaos ensuing."],
-          ["Down into mines, trapping miners inside."],
-          ["Aboard a large ship anchored in the bay."]
+          ["Onto an **island**, home to a monastery."],
+          ["Into a small **hamlet**, everyone stuck indoors."],
+          ["Into a **valley**, an important trade crossroad."],
+          ["Throughout a **city**, absolute chaos ensuing."],
+          ["Down into **mines**, trapping miners inside."],
+          ["Aboard a large **ship** anchored in the bay."]
         ]}
       />
       <Monster
+        id="couatl"
         name="Couatl"
         type="protector"
         colors={["bronze gold", "iridescent blue", "emerald green"]}
@@ -221,15 +337,16 @@ const Chapter05 = () => {
         smell="clean fresh breeze, soothing incense, hopeful magic"
         tableTitle="Sacred Task"
         tableRows={[
-          ["Retrieve a sacred artifact—your sword."],
-          ["Protect a chosen one—your enemy."],
-          ["Find ancient knowledge—your secret."],
-          ["Teach you a forgotten language."],
-          ["Stop you from destroying the world."],
-          ["Tricked by a devil into destroying you."]
+          ["**Retrieve** a sacred artifact—your sword."],
+          ["**Protect** a chosen one—your enemy."],
+          ["**Find** ancient knowledge—your secret."],
+          ["**Teach** you a forgotten language."],
+          ["**Stop** you from destroying the world."],
+          ["**Tricked** by a devil into destroying you."]
         ]}
       />
       <Monster
+        id="cyclops"
         name="Cyclops"
         type="brute"
         colors={["weathered beige", "eyeball white", "stone brown"]}
@@ -243,15 +360,16 @@ const Chapter05 = () => {
         smell="unwashed skin, earthy cave, sharp stone dust"
         tableTitle="Cyclopean Curses"
         tableRows={[
-          ["It can only see at night."],
-          ["It can only venture outside in the rain."],
-          ["Its every footstep causes a tremor."],
-          ["It's terrified of small mammals."],
-          ["It can never stop walking."],
-          ["It's lonely, the last of its kind."]
+          ["It can only see at **night**."],
+          ["It can only venture outside in the **rain**."],
+          ["Its every footstep causes a **tremor**."],
+          ["It's terrified of **small mammals**."],
+          ["It can never stop **walking**."],
+          ["It's **lonely**, the last of its kind."]
         ]}
       />
       <Monster
+        id="demon-balor"
         name="Demon, Balor"
         type="overseer"
         colors={["inferno red", "smoky black", "ember orange"]}
@@ -266,12 +384,12 @@ const Chapter05 = () => {
         tableTitle="Death Throes"
         tableDescription="Roll 2"
         tableRows={[
-          ["Devastating explosion, reducing all to ash."],
-          ["Brilliant flash, blinding all that witness it."],
-          ["Lava geysers erupt from the ground."],
-          ["Hellfire meteors bombard the area."],
-          ["Blazing cyclone and molten rain wreak havoc."],
-          ["A portal to the Abyss opens, compelling entrance."]
+          ["Devastating **explosion**, reducing all to ash."],
+          ["Brilliant **flash**, blinding all that witness it."],
+          ["**Lava geysers** erupt from the ground."],
+          ["**Hellfire meteors** bombard the area."],
+          ["**Blazing cyclone** and **molten rain** wreak havoc."],
+          ["A **portal** to the Abyss opens, compelling entrance."]
         ]}
       >
         <Text align="center">
@@ -334,6 +452,7 @@ const Chapter05 = () => {
         </Grid>
       </Monster>
       <Monster
+        id="demon-glabrezu"
         name="Demon, Glabrezu"
         type="trickster"
         colors={["blood red", "demonic purple", "deep gray"]}
@@ -348,15 +467,16 @@ const Chapter05 = () => {
         tableTitle="Wishes Granted"
         tableDescription="With Ruin Soon To Follow"
         tableRows={[
-          ["Love → the beloved dies."],
-          ["Wealth → greed is never sated."],
-          ["Wisdom → descent into madness."],
-          ["Victory → guilt over how it was won."],
-          ["Beauty → horror when it fades."],
-          ["Fame → jealousy from those close."]
+          ["**Love**, leading to the death of their beloved."],
+          ["**Wealth**, leading to never-satiated greed."],
+          ["**Wisdom**, leading to a descent into madness."],
+          ["**Victory**, leading to guilt on how it was won."],
+          ["**Beauty**, leading to horror as it fades even a little."],
+          ["**Fame**, leading to jealousy from those close."]
         ]}
       />
       <Monster
+        id="demon-vrock"
         name="Demon, Vrock"
         type="marauder"
         colors={["feathered gray", "sickly green", "bone white"]}
@@ -370,15 +490,16 @@ const Chapter05 = () => {
         smell="rancid decay, spores clogging nostrils"
         tableTitle="Spore Effects"
         tableRows={[
-          ["Betrayal poisons trust between allies."],
-          ["Terror causes reckless desperation."],
-          ["Visions twist allies into horrors."],
-          ["Rage swells into bloodlust."],
-          ["Envy breeds treacherous ambition."],
-          ["“Heroism” becomes self-sacrificial madness."]
+          ["**Betrayal**, poisoning trust between allies."],
+          ["**Terror**, causing reckless desperation."],
+          ["**Visions**, twisting allies into horrors."],
+          ["**Rage**, swelling into extreme bloodlust."],
+          ["**Envy**, breeding treacherous ambition."],
+          ["**Heroism**, turning into self-sacrificial madness."]
         ]}
       />
       <Monster
+        id="devil-barbed"
         name="Devil, Barbed"
         type="lurker"
         colors={["iron gray", "steel blue", "crimson"]}
@@ -392,15 +513,16 @@ const Chapter05 = () => {
         smell="coppery fresh blood and agony"
         tableTitle="Summoned Into..."
         tableRows={[
-          ["Royal wedding meant to seal a fragile peace."],
-          ["Public execution meant to crush rebellion."],
-          ["Temple consecration meant to ward off evil."],
-          ["Feast marking the end of a great famine."],
-          ["Trial of a beloved noble, accused of treason."],
-          ["Coronation of a hesitant ruler, full of doubt."]
+          ["**Royal wedding*, meant to seal a fragile peace."],
+          ["**Public execution**, meant to crush rebellion."],
+          ["**Temple consecration**, meant to ward off evil."],
+          ["**Feast** marking the end of a great famine."],
+          ["**Trial** of a beloved noble, accused of treason."],
+          ["**Coronation** of a hesitant ruler, full of doubt."]
         ]}
       />
       <Monster
+        id="devil-chain"
         name="Devil, Chain"
         type="tactician"
         colors={["soot black", "ember red", "dark green"]}
@@ -414,15 +536,16 @@ const Chapter05 = () => {
         smell="rusty, reeking metal, pungent sweat and fear"
         tableTitle="Imprisoned Within..."
         tableRows={[
-          ["Labyrinthine halls of the mad queen."],
-          ["Cursed portrait in a lavish hall."],
-          ["Steamy, opulent bathhouse in the capital."],
-          ["Reliquary of a respected temple."],
+          ["**Labyrinthine halls** of the mad queen."],
+          ["**Cursed portrait** in a lavish hall."],
+          ["Steamy, opulent **bathhouse** in the capital."],
+          ["**Reliquary** of a respected temple."],
           ["Trade guild vault, sealed with powerful runes."],
-          ["Winding forest pathways surrounding town."]
+          ["Winding **forest pathways** surrounding town."]
         ]}
       />
       <Monster
+        id="devil-horned"
         name="Devil, Horned"
         type="brute"
         colors={["fiery red", "burnt orange", "deep black"]}
@@ -436,15 +559,16 @@ const Chapter05 = () => {
         smell="acrid sulfur, suffocating smoke, brimstone"
         tableTitle="Broken Summoning Circles"
         tableRows={[
-          ["In a temple by a priest who lost their faith."],
-          ["In a farmhouse by a grief-stricken mother."],
-          ["In a tower by a wizard consumed with jealousy."],
-          ["In the study of a hero haunted by failure."],
-          ["In a tavern by a minstrel obsessed with fame."],
-          ["In a cobbler's cellar, by a long-held prisoner."]
+          ["In a **temple** by a priest who lost their faith."],
+          ["In a **farmhouse** by a grief-stricken mother."],
+          ["In a **tower** by a wizard consumed with jealousy."],
+          ["In the **study** of a hero haunted by failure."],
+          ["In a **tavern** by a minstrel obsessed with fame."],
+          ["In a **cobbler's cellar**, by a long-held prisoner."]
         ]}
       />
       <Monster
+        id="devil-imp"
         name="Devil, Imp"
         type="trickster"
         colors={["wicked red", "tarnished gold", "smoky gray"]}
@@ -458,15 +582,16 @@ const Chapter05 = () => {
         smell="faint whiffs of venom and sulfur"
         tableTitle="Impish Snares"
         tableRows={[
-          ["Spoon that makes food taste slightly rotten."],
-          ["Quill that weaves insults into messages."],
-          ["Candle that goes out at the worst time."],
-          ["Map that shifts landmarks and roads."],
-          ["Compass that always points toward “fun.”"],
-          ["Doll that moves to a new spot each night."]
+          ["**Spoon** that makes food taste slightly rotten."],
+          ["**Quill** that weaves insults into messages."],
+          ["**Candle** that goes out at the worst time."],
+          ["**Map** that shifts landmarks and roads."],
+          ["**Compass** that always points toward “fun.”"],
+          ["**Doll** that moves to a new spot each night."]
         ]}
       />
       <Monster
+        id="dire-bear"
         name="Dire Bear"
         type="brute"
         colors={["deep brown", "furry black", "grizzly brown"]}
@@ -480,15 +605,16 @@ const Chapter05 = () => {
         smell="crisp pine, overturned earth, wet fur"
         tableTitle="Territory Woes"
         tableRows={[
-          ["It has far too many cubs."],
-          ["Grand hunt has been called for it."],
-          ["Another dire apex predator has arrived."],
-          ["Civilization encroaches on its borders."],
-          ["Totemic wards restrict its roaming grounds."],
-          ["Goblins wage war against orcs on its lands. &#x20;"]
+          ["It has **far too many** cubs."],
+          ["**Grand hunt** has been called for it."],
+          ["Another **dire apex predator** has arrived."],
+          ["**Civilization** encroaches on its borders."],
+          ["**Totemic wards** restrict its roaming grounds."],
+          ["Goblins **wage war** against orcs on its lands."]
         ]}
       />
       <Monster
+        id="dire-centipede"
         name="Dire Centipede"
         type="skirmisher"
         colors={["burnt sienna", "earthy brown", "chitin black"]}
@@ -502,15 +628,16 @@ const Chapter05 = () => {
         smell="nutty insect aroma, sour rotting wood"
         tableTitle="Home Tunnels"
         tableRows={[
-          ["Tunnels filled with towering mushrooms."],
-          ["The ruins of a lavish underground palace."],
-          ["Enormous cavern full of bioluminescence."],
-          ["Through the bones of a buried giant."],
-          ["Flooded sea caves, where it hunts for sharks."],
-          ["Through twisting roots of colossal trees. &#x20;"]
+          ["Tunnels filled with **towering mushrooms**."],
+          ["The ruins of a lavish **underground palace**."],
+          ["Enormous cavern full of **bioluminescence**."],
+          ["Through the **bones** of a buried giant."],
+          ["**Flooded sea caves**, where it hunts for sharks."],
+          ["Through **twisting roots** of colossal trees."]
         ]}
       />
       <Monster
+        id="dire-crab"
         name="Dire Crab"
         type="marauder"
         colors={["shell red", "coral pink", "fleshy orange"]}
@@ -524,15 +651,16 @@ const Chapter05 = () => {
         smell="wet sand, seaweed, decaying marine life"
         tableTitle="Dire Hermit Crab Shells"
         tableRows={[
-          ["Sunken pirate ship, now haunted."],
-          ["Fallen castle turret, filled with explosives."],
-          ["Giant's skull, with a gleaming gold tooth."],
-          ["Whale ribcage, covered in barnacles."],
-          ["Gnomish submarine, still water-tight."],
-          ["Iron cauldron once used by a giant. &#x20;"]
+          ["Sunken **pirate ship**, now haunted."],
+          ["Fallen **castle turret**, filled with explosives."],
+          ["**Giant's skull**, with a gleaming gold tooth."],
+          ["**Whale ribcage**, covered in barnacles."],
+          ["**Gnomish submarine**, still water-tight."],
+          ["**Iron cauldron** once used by a giant."]
         ]}
       />
       <Monster
+        id="dire-crocodile"
         name="Dire Crocodile"
         type="lurker"
         colors={["swamp green", "muddy brown", "scaly black"]}
@@ -547,15 +675,16 @@ const Chapter05 = () => {
         tableTitle="Worshippers"
         tableDescription="The Croc's Totally Unaware"
         tableRows={[
-          ["Local fishers who see it as the god of floods."],
-          ["Cultists who offer sacrifices."],
-          ["Water elementals believing it guards the river."],
-          ["Merfolk who live alongside it."],
-          ["Hill giants, envious of its eternal hunger."],
-          ["Swamp hags believing it gives them magic. &#x20;"]
+          ["**Local fishers** who see it as the god of floods."],
+          ["**Cultists** who offer sacrifices."],
+          ["**Water elementals** believing it guards the river."],
+          ["**Merfolk** who live alongside it."],
+          ["**Hill giants**, envious of its eternal hunger."],
+          ["**Swamp hags** believing it gives them magic."]
         ]}
       />
       <Monster
+        id="dire-eagle"
         name="Dire Eagle"
         type="predator"
         colors={["feathery white", "earthy brown", "stormy gray"]}
@@ -569,15 +698,16 @@ const Chapter05 = () => {
         smell="crisp high-altitude air, faint carrion scent"
         tableTitle="Unique Eyries"
         tableRows={[
-          ["Spire of a still-occupied wizard's tower."],
-          ["Atop a giant redwood, tallest in the world."],
-          ["Rocky outcrop above a foggy elephant graveyard."],
-          ["Desolate mesatop, bones surrounding the nest."],
-          ["Between stone arches of an ancient bridge."],
-          ["In the hand of an enormous carved statue. &#x20;"]
+          ["**Spire** of a still-occupied wizard's tower."],
+          ["Atop a giant **redwood tree**, the tallest in the world."],
+          ["Rocky outcrop above a foggy **elephant graveyard**."],
+          ["Desolate **mesatop**, bones surrounding the nest."],
+          ["Between stone arches of an **ancient bridge**."],
+          ["In the **hand** of an enormous carved statue."]
         ]}
       />
       <Monster
+        id="dire-shark"
         name="Dire Shark"
         type="predator"
         colors={["ocean gray", "bone white", "deep blue"]}
@@ -591,15 +721,16 @@ const Chapter05 = () => {
         smell="briny saltwater, upturned seawater"
         tableTitle="Destroyed Ships"
         tableRows={[
-          ["Royal flagship, crown jewels still aboard."],
-          ["War galleon, with the spoils of war."],
-          ["Passenger liner, still barely floating."],
-          ["Submarine, survivors in a deep sea cave."],
-          ["Ghost ship, cursing the waters for decades."],
-          ["Orcish warship, fused to its back by dark magic. &#x20;"]
+          ["**Royal flagship**, crown jewels still aboard."],
+          ["**War galleon**, with the spoils of war."],
+          ["**Passenger liner**, still barely floating."],
+          ["**Submarine**, survivors in a deep sea cave."],
+          ["**Ghost ship**, cursing the waters for decades."],
+          ["**Orcish warship**, fused to its back by dark magic."]
         ]}
       />
       <Monster
+        id="dire-spider"
         name="Dire Spider"
         type="tactician"
         colors={["venom green", "midnight black", "dark crimson"]}
@@ -613,15 +744,16 @@ const Chapter05 = () => {
         smell="sickly-sweet venom, putrid wrapped bodies"
         tableTitle="Dire Spider Varieties"
         tableRows={[
-          ["Netcaster—traps from far away."],
-          ["Jumping—catches prey with a leap."],
-          ["Longlegs—moves quickly through foliage."],
-          ["Pitdweller—strikes from hidden holes."],
-          ["Waterglider—skims across marshes."],
-          ["Divingbell—lives completely underwater. &#x20;"]
+          ["**Netcaster**, trapping from far away."],
+          ["**Jumping**, catching prey off-guard with a leap."],
+          ["**Longlegs**, moving quickly through foliage."],
+          ["**Pitdweller**, striking from well-hidden holes."],
+          ["**Waterglider**, skimming across marshes."],
+          ["**Divingbell**, living completely underwater."]
         ]}
       />
       <Monster
+        id="dire-wolf"
         name="Dire Wolf"
         type="overseer"
         colors={["ashen gray", "light brown", "frosty gray"]}
@@ -635,15 +767,16 @@ const Chapter05 = () => {
         smell="fur mixed with fresh earth, sweat, mountain air"
         tableTitle="Lunar Behaviors"
         tableRows={[
-          ["New moon—restless border patrols."],
-          ["Crescent—young grow unruly."],
-          ["Full moon—deafening howls."],
-          ["Gibbous—pack dominance shifts."],
-          ["Blood moon—rampage outside borders."],
-          ["Blue moon—dire wolf litter is born. &#x20;"]
+          ["New moon, restless border **patrols**."],
+          ["Crescent, young grow **unruly**."],
+          ["Full moon, deafening **howls**."],
+          ["Gibbous, pack **dominance** shifts."],
+          ["Blood moon, **rampage** outside their borders."],
+          ["Blue moon, dire wolf **litter** is born."]
         ]}
       />
       <Monster
+        id="dislocation-beast"
         name="Dislocation Beast"
         type="trickster"
         colors={["shadow black", "midnight blue", "mystic purple"]}
@@ -657,15 +790,16 @@ const Chapter05 = () => {
         smell="spicy musk with caustic undertone"
         tableTitle="Bizarre Phenomena"
         tableRows={[
-          ["Mundane sounds, completely out of place."],
-          ["Fleeting reflections from alternate worlds."],
-          ["Shadows elongate unnaturally and linger."],
-          ["Echoes ricochet unpredictably."],
-          ["Colors bleed into neighboring hues."],
-          ["Invisible ripples that distort vision. &#x20;"]
+          ["**Mundane sounds**, completely out of place."],
+          ["**Fleeting reflections** from alternate worlds."],
+          ["**Shadows** elongate unnaturally and linger."],
+          ["**Echoes** ricochet unpredictably."],
+          ["**Colors bleed** into neighboring hues."],
+          ["**Invisible ripples** that distort vision."]
         ]}
       />
       <Monster
+        id="doppelganger"
         name="Doppelganger"
         type="trickster"
         colors={["neutral gray", "neutral gray", "neutral gray"]}
@@ -679,15 +813,16 @@ const Chapter05 = () => {
         smell="a smell unexpectedly “off” for that person"
         tableTitle="Identities You Know"
         tableRows={[
-          ["Noble's trusted advisor, met last winter."],
-          ["The second-to-last person the PCs met."],
-          ["Old flame of a PC, thought long dead."],
-          ["Wandering monk, seen only days ago."],
-          ["Previous PC from this campaign or another."],
-          ["Executed thief, now walking free. &#x20;"]
+          ["Noble's trusted **advisor**, met last winter."],
+          ["The **second-to-last** person the PCs met."],
+          ["Old **flame** of a PC, thought long dead."],
+          ["Wandering **monk**, seen only days ago."],
+          ["P**revious PC**, from this campaign or another."],
+          ["Executed **thief**, now walking free."]
         ]}
       />
       <Monster
+        id="dragon"
         name="Dragon"
         type="blaster"
         colors={["scale emerald", "crimson flame", "gold accent"]}
@@ -702,12 +837,12 @@ const Chapter05 = () => {
         tableTitle="Hoarding Instincts"
         tableDescription="Besides Gold"
         tableRows={[
-          ["Scrolls of lost languages."],
-          ["Crown jewels of forgotten kingdoms."],
-          ["Gravestones of great heroes."],
-          ["Maps of the world."],
-          ["Weapons forged in time of need."],
-          ["Holy symbols of fallen gods."]
+          ["**Scrolls** of lost languages."],
+          ["**Crown jewels** of forgotten kingdoms."],
+          ["**Gravestones** of great heroes."],
+          ["**Maps** of the world."],
+          ["**Weapons** forged in time of need."],
+          ["**Holy symbols** of fallen gods."]
         ]}
       >
         <Text align="center">
@@ -756,6 +891,7 @@ const Chapter05 = () => {
         </Text>
       </Monster>
       <Monster
+        id="elemental-air"
         name="Elemental, Air"
         type="trickster"
         colors={["cloud white", "sky blue", "whisper gray"]}
@@ -769,15 +905,16 @@ const Chapter05 = () => {
         smell="high-altitude winds, rain and freshly turned earth"
         tableTitle="Form & Personality"
         tableRows={[
-          ["Swirling cyclone—erratic and wild."],
-          ["Floating cloud—serene and evasive."],
-          ["Tornado—furious and unstoppable."],
-          ["Dust devil—sneaky and persistent."],
-          ["Gusty winds—playful and mischievous."],
-          ["Zephyr—kind but undependable."]
+          ["**Swirling cyclone**, erratic and wild."],
+          ["**Floating cloud**, serene and evasive."],
+          ["**Tornado**, furious and unstoppable."],
+          ["**Dust devil**, sneaky and persistent."],
+          ["**Gusty winds**, playful and mischievous."],
+          ["**Zephyr**, kind but undependable."]
         ]}
       />
       <Monster
+        id="elemental-earth"
         name="Elemental, Earth"
         type="brute"
         colors={["mossy green", "rocky brown", "stone gray"]}
@@ -791,15 +928,16 @@ const Chapter05 = () => {
         smell="loamy disturbed soil, moss, wet stone, mineral tang"
         tableTitle="Biome & Personality"
         tableRows={[
-          ["Forest, rooted and protective."],
-          ["Badlands, harsh and unforgiving."],
-          ["Mountains, proud and resilient."],
-          ["Caves, brooding and watchful."],
-          ["Mudflats, slow but determined."],
-          ["Grasslands, patient and enduring."]
+          ["**Forest**, rooted and protective."],
+          ["**Badlands**, harsh and unforgiving."],
+          ["**Mountains**, proud and resilient."],
+          ["**Caves**, brooding and watchful."],
+          ["**Mudflats**, slow but determined."],
+          ["**Grasslands**, patient and enduring."]
         ]}
       />
       <Monster
+        id="elemental-fire"
         name="Elemental, Fire"
         type="marauder"
         colors={["blazing red", "burnt gold", "molten orange"]}
@@ -813,15 +951,16 @@ const Chapter05 = () => {
         smell="sulfur, brimstone, smoke, char, tang of metals"
         tableTitle="Ignition & Personality"
         tableRows={[
-          ["Lightning strike, violent and ephemeral."],
-          ["Ritual flame, sacred and commanding."],
-          ["Forge fire, controlled and powerful."],
-          ["Coal embers, patient and smoldering."],
-          ["Wildfire, ravenous and unrestrained."],
-          ["Funeral pyre, solemn and determined."]
+          ["Lightning strike**, violent and ephemeral."],
+          ["Ritual flame**, sacred and commanding."],
+          ["Forge fire**, controlled and powerful."],
+          ["Coal embers**, patient and smoldering."],
+          ["Wildfire**, ravenous and unrestrained."],
+          ["Funeral pyre**, solemn and determined."]
         ]}
       />
       <Monster
+        id="elemental-water"
         name="Elemental, Water"
         type="blaster"
         colors={["ocean blue", "wavecrest white", "seafoam green"]}
@@ -835,15 +974,16 @@ const Chapter05 = () => {
         smell="briny ocean, soaked soil, sharp freshwater"
         tableTitle="Water Source & Personality"
         tableRows={[
-          ["Tidal pool, playful and fickle."],
-          ["Raging rapids, relentless and reckless."],
-          ["Murky swamp, deceptive and suffocating."],
-          ["Rain, gentle and melancholic."],
-          ["Geyser, frustrated and volatile."],
-          ["Oasis, welcoming and mysterious."]
+          ["**Tidal pool**, playful and fickle."],
+          ["**Raging rapids**, relentless and reckless."],
+          ["**Murky swamp**, deceptive and suffocating."],
+          ["**Rain**, gentle and melancholic."],
+          ["**Geyser**, frustrated and volatile."],
+          ["**Oasis**, welcoming and mysterious."]
         ]}
       />
       <Monster
+        id="ettin"
         name="Ettin"
         type="brute"
         colors={["fleshy gray", "dark leather", "ashen white"]}
@@ -857,15 +997,16 @@ const Chapter05 = () => {
         smell="sweaty musk, animal hides, unkempt hair"
         tableTitle="Unlikely Protector Of..."
         tableRows={[
-          ["Three old witches, who use it as a bodyguard."],
-          ["Ragtag group of orphans that saved it."],
-          ["Goblins, because they worship it as a god."],
-          ["Hamlet of farmers, who feed it."],
-          ["Wandering circus, using it as a bouncer."],
-          ["Hermit, friends with both heads."]
+          ["**Three old witches**, who use it as a bodyguard."],
+          ["Ragtag group of **orphans** that saved it."],
+          ["**Goblins**, because they worship it as a god."],
+          ["**Hamlet** of farmers, who feed it."],
+          ["**Wandering circus**, using it as a bouncer."],
+          ["**Hermit**, friends with both heads."]
         ]}
       />
       <Monster
+        id="ettercap"
         name="Ettercap"
         type="tactician"
         colors={["spider gray", "venom purple", "forest green"]}
@@ -879,15 +1020,16 @@ const Chapter05 = () => {
         smell="rotting wood, wet earth, decaying bodies"
         tableTitle="Webbed Domains"
         tableRows={[
-          ["Bramble patch, every inch covered in webs."],
-          ["Long, narrow, winding canyons."],
-          ["Massive, abandoned library in the capital."],
-          ["Granaries abandoned during the famine."],
-          ["Derelict shipwreck, sails webbed over."],
-          ["Sunken pitfall in the middle of the woods."]
+          ["**Bramble patch**, every inch covered in webs."],
+          ["Long, narrow, winding **canyons**."],
+          ["Massive, abandoned **library** in the capital."],
+          ["**Granaries** abandoned during the famine."],
+          ["Derelict **shipwreck**, sails webbed over."],
+          ["Sunken **pitfall** in the middle of the woods."]
         ]}
       />
       <Monster
+        id="fey-dryad"
         name="Fey, Dryad"
         type="protector"
         colors={["mossy green", "bark brown", "forest green"]}
@@ -901,15 +1043,16 @@ const Chapter05 = () => {
         smell="earthy scent, woody aroma, crisp fresh leaves"
         tableTitle="Arboreal Lineage"
         tableRows={[
-          ["Weeping willow, shy but playful."],
-          ["Oak, stern and steadfast."],
-          ["Maple, sweet and protective."],
-          ["Ash, resilient and wise."],
-          ["Elm, mournful but warm-hearted."],
-          ["Yew, resilient and vengeful."]
+          ["**Weeping willow**, shy but playful."],
+          ["**Oak**, stern and steadfast."],
+          ["**Maple**, sweet and protective."],
+          ["**Ash**, resilient and wise."],
+          ["**Elm**, mournful but warm-hearted."],
+          ["**Yew**, resilient and vengeful."]
         ]}
       />
       <Monster
+        id="fey-faery"
         name="Fey, Faery"
         type="trickster"
         colors={["petal pink", "soft lavender", "pale blue"]}
@@ -923,15 +1066,16 @@ const Chapter05 = () => {
         smell="delicate nectar, lavender and jasmine, sugary aroma"
         tableTitle="Fairy Circles"
         tableRows={[
-          ["Mushrooms glowing faintly in the dusk."],
-          ["Ring of sunflowers in a grassy field."],
-          ["Fallen leaves after a rain."],
-          ["Precarious pebble towers, defying gravity."],
-          ["Dancing fireflies in a glowing spiral."],
-          ["Ring of acorns around a sapling."]
+          ["**Mushrooms** glowing faintly in the dusk."],
+          ["Ring of **sunflowers** in a grassy field."],
+          ["Fallen **leaves** after a rain."],
+          ["Precarious **pebble** towers, defying gravity."],
+          ["Dancing **fireflies** in a glowing spiral."],
+          ["Ring of **acorns** around a sapling."]
         ]}
       />
       <Monster
+        id="fey-redcap"
         name="Fey, Redcap"
         type="marauder"
         colors={["blood red", "aged leather", "thicket green"]}
@@ -945,15 +1089,16 @@ const Chapter05 = () => {
         smell="thick coppery scent of fresh blood like a fog"
         tableTitle="Warband Bosses"
         tableRows={[
-          ["Goretooth, feared even by its kin."],
-          ["Bloodsoak, who bathes in blood."],
-          ["Rotfoot, who would rule the fey."],
-          ["Nocap, the hatless one."],
-          ["Redeyes, born of a murder most foul."],
-          ["Feybane, who is called betrayer."]
+          ["**Goretooth**, feared even by its kin."],
+          ["**Bloodsoak**, who bathes in blood."],
+          ["**Rotfoot**, who would rule the fey."],
+          ["**Nocap**, the hatless one."],
+          ["**Redeyes**, born of a murder most foul."],
+          ["**Feybane**, who is called betrayer."]
         ]}
       />
       <Monster
+        id="fey-satyr"
         name="Fey, Satyr"
         type="brute"
         colors={["earthy brown", "autumn tawny", "grassy green"]}
@@ -976,6 +1121,7 @@ const Chapter05 = () => {
         ]}
       />
       <Monster
+        id="gargoyle"
         name="Gargoyle"
         type="protector"
         colors={["stone gray", "ash black", "mossy green"]}
@@ -989,15 +1135,16 @@ const Chapter05 = () => {
         smell="dusty earth, ancient stone, tang of rainwater"
         tableTitle="Odd Wards"
         tableRows={[
-          ["Door that must remain opened."],
-          ["Throne meant for a fallen king."],
-          ["Gate that seemingly leads nowhere."],
-          ["Altar long without its god."],
-          ["Bell tower, never once chimed."],
-          ["Empty stepwell, its community now dust."]
+          ["**Door** that must remain opened."],
+          ["**Throne** meant for a fallen king."],
+          ["**Gate** that seemingly leads nowhere."],
+          ["**Altar** long without its god."],
+          ["**Bell tower**, never once chimed."],
+          ["**Empty stepwell**, its community now dust."]
         ]}
       />
       <Monster
+        id="gelatinous-cube"
         name="Gelatinous Cube"
         type="brute"
         colors={["acidic green", "translucent blue", "pale lime"]}
@@ -1011,15 +1158,16 @@ const Chapter05 = () => {
         smell="sour odor of acid, stinging scent of corroded metal"
         tableTitle="Aberrations"
         tableRows={[
-          ["Hollow center filled with flaming, sloshing gel."],
-          ["Charged with crackling electric arcs."],
-          ["Constantly shifting in prismatic colors."],
-          ["Packed with razor-sharp hunks of metal."],
-          ["Swarm of dice-sized cubes."],
-          ["Impossibly dense, slow, and indestructible."]
+          ["Hollow center filled with **flaming, sloshing gel**."],
+          ["Charged with **crackling** electric arcs."],
+          ["Constantly shifting in **prismatic** colors."],
+          ["Packed with **razor-sharp** hunks of metal."],
+          ["**Swarm** of dice-sized cubes."],
+          ["Impossibly dense, slow, and **indestructible**."]
         ]}
       />
       <Monster
+        id="genie"
         name="Genie"
         type="blaster"
         colors={["burnished gold", "sapphire blue", "mystic purple"]}
@@ -1033,15 +1181,16 @@ const Chapter05 = () => {
         smell="crisp air, lingering jasmine and lotus, alluring spice"
         tableTitle="Genie Twists"
         tableRows={[
-          ["Tries to destroy itself with the wish."],
-          ["Tries too hard to improve the wish."],
-          ["Makes the wish somehow achieve the opposite."],
-          ["Mishears, changing one letter in the wish."],
-          ["Splits the wish around unevenly."],
-          ["Can't actually grant wishes, but will not admit it."]
+          ["Tries to **destroy itself** with the wish."],
+          ["Tries too hard to **improve** the wish."],
+          ["Makes the wish somehow achieve the **opposite**."],
+          ["**Mishears**, changing one letter in the wish."],
+          ["**Splits** the wish around unevenly."],
+          ["**Can't** actually grant wishes, but will not admit it."]
         ]}
       />
       <Monster
+        id="gibbering-mouther"
         name="Gibbering Mouther"
         type="brute"
         colors={["pale flesh", "meaty red", "fleshy pink"]}
@@ -1055,15 +1204,16 @@ const Chapter05 = () => {
         smell="sour odor of bile and rot, viscera, rancid meat"
         tableTitle="Voices In The Chaos"
         tableRows={[
-          ["Familiar voices calling your name."],
-          ["Fragments of broken promises."],
-          ["Pleas for help and forgiveness."],
-          ["Mocking tones from an old enemy."],
-          ["Chants from forgotten rituals."],
-          ["Your own voice, screaming your thoughts."]
+          ["**Familiar** voices calling your name."],
+          ["**Fragments** of broken promises."],
+          ["**Pleas** for help and forgiveness."],
+          ["**Mocking tones** from an old enemy."],
+          ["**Chants** from forgotten rituals."],
+          ["**Your own voice**, screaming your thoughts."]
         ]}
       />
       <Monster
+        id="golem"
         name="Golem"
         type="brute"
         colors={["clay brown", "iron rust", "stone gray"]}
@@ -1077,15 +1227,16 @@ const Chapter05 = () => {
         smell="overwhelming scent of the material it was made of"
         tableTitle="Golem Construction"
         tableRows={[
-          ["Clay, with a malleable form."],
-          ["Iron, with a strong magnetic pull."],
-          ["Crystal, refracting light into dazzling shards."],
-          ["Jade, with a mind and will of its own."],
-          ["Flesh, forming tiny flesh or blood golems if cut."],
-          ["Wood, regrowing damaged parts quickly."]
+          ["**Clay**, with a malleable form."],
+          ["**Iron**, with a strong magnetic pull."],
+          ["**Crystal**, refracting light into dazzling shards."],
+          ["**Jade**, with a mind and will of its own."],
+          ["**Flesh**, forming tiny flesh or blood golems if cut."],
+          ["**Wood**, regrowing damaged parts quickly."]
         ]}
       />
       <Monster
+        id="gorgon"
         name="Gorgon"
         type="brute"
         colors={["metallic gray", "bronze highlights", "gaseous green"]}
@@ -1099,15 +1250,16 @@ const Chapter05 = () => {
         smell="heavy metallic odor, slight staleness in the air"
         tableTitle="Metallic Variations"
         tableRows={[
-          ["Titanium, light and incredibly fast."],
-          ["Lead, slow but nearly indestructible."],
-          ["Steel, covered in sharp spikes."],
-          ["Silver, blindingly reflecting light."],
-          ["Brass, emitting an unsettling hum."],
-          ["Bronze, resisting all magic."]
+          ["**Titanium**, light and incredibly fast."],
+          ["**Lead**, slow but nearly indestructible."],
+          ["**Steel**, covered in sharp spikes."],
+          ["**Silver**, blindingly reflecting light."],
+          ["**Brass**, emitting an unsettling hum."],
+          ["**Bronze**, resisting all magic."]
         ]}
       />
       <Monster
+        id="grick"
         name="Grick"
         type="lurker"
         colors={["slate gray", "mauve gray", "dark olive&"]}
@@ -1121,15 +1273,16 @@ const Chapter05 = () => {
         smell=""
         tableTitle="Side Effects Of Magical Experimentation"
         tableRows={[
-          ["Cloaks the whole area in darkness."],
-          ["Bursts into blinding light when it strikes."],
-          ["Releases a cloud of sleep gas when struck."],
-          ["Lets out shrill, echoing whistles."],
-          ["Absorbs all sound into utter silence."],
-          ["Tentacles stretch three times normal length."]
+          ["Cloaks the whole area in **darkness**."],
+          ["Bursts into **blinding light** when it strikes."],
+          ["Releases a cloud of **sleep gas** when struck."],
+          ["Lets out shrill, echoing **whistles**."],
+          ["Absorbs all sound into **utter silence**."],
+          ["Tentacles **stretch** three times normal length."]
         ]}
       />
       <Monster
+        id="griffon"
         name="Griffon"
         type="predator"
         colors={["lion gold", "feathery white", "stormy blue"]}
@@ -1143,15 +1296,16 @@ const Chapter05 = () => {
         smell=""
         tableTitle="People It Terrorizes"
         tableRows={[
-          ["Satyrs, drawn by their celebrations."],
-          ["Hags, which it hunts for sport."],
-          ["Shepherds, raiding their flocks."],
-          ["Merchant caravans, curious about their carts."],
-          ["Hunters, in revenge for killing kin."],
-          ["Bandits, scaring them out of its lands."]
+          ["**Satyrs**, drawn by their celebrations."],
+          ["**Hags**, which it hunts for sport."],
+          ["**Shepherds**, raiding their flocks."],
+          ["**Merchant caravans**, curious about their carts."],
+          ["**Hunters**, in revenge for killing kin."],
+          ["**Bandits**, scaring them out of its lands."]
         ]}
       />
       <Monster
+        id="giant-fire"
         name="Giant, Fire"
         type="marauder"
         colors={["burnt ember", "fiery red", "coal black"]}
@@ -1174,6 +1328,7 @@ const Chapter05 = () => {
         ]}
       />
       <Monster
+        id="giant-frost"
         name="Giant, Frost"
         type="blaster"
         colors={["icy blue", "frosty gray", "stone gray"]}
@@ -1187,15 +1342,16 @@ const Chapter05 = () => {
         smell="biting cold, frigid air, pine trees, fresh snow"
         tableTitle="Unexpected Locations"
         tableRows={[
-          ["Entire tower built around it, keeping it frozen."],
-          ["Steps through a portal and onto a sandy beach."],
-          ["Riding on a floating iceberg towards a port city."],
-          ["In a grand wizard's laboratory."],
-          ["Emerging from a bizarre mid-spring blizzard."],
-          ["Tied down in the middle of a vast desert."]
+          ["**Entire tower** built around it, keeping it frozen."],
+          ["Steps through a portal and onto a **sandy beach**."],
+          ["Riding on a **floating iceberg** towards a port city."],
+          ["In a grand **wizard's laboratory**."],
+          ["Emerging from a bizarre **mid-spring blizzard**."],
+          ["Tied down in the middle of a **vast desert**."]
         ]}
       />
       <Monster
+        id="giant-hill"
         name="Giant, Hill"
         type="brute"
         colors={["dusty tan", "earthy brown", "muddy green"]}
@@ -1209,15 +1365,16 @@ const Chapter05 = () => {
         smell="overpowering stench of sweat, sour rotting food"
         tableTitle="Quirks"
         tableRows={[
-          ["Always brewing up a brand new stew."],
-          ["Hoards small, shiny objects—like mirrors."],
-          ["Roams with a large pack of stray dogs."],
-          ["Exceptionally rotund, even for a hill giant."],
-          ["Extremely short, for a hill giant."],
-          ["Thinks even the slightest odd thing is hilarious."]
+          ["Always brewing up a **brand new stew**."],
+          ["**Hoards** small, shiny objects—like mirrors."],
+          ["Roams with a large pack of **stray dogs**."],
+          ["Exceptionally **rotund**, even for a hill giant."],
+          ["Extremely **short**, for a hill giant."],
+          ["Thinks even the slightest odd thing is **hilarious**."]
         ]}
       />
       <Monster
+        id="giant-storm"
         name="Giant, Storm"
         type="blaster"
         colors={["electric blue", "cloudy sky", "stormy gray"]}
@@ -1231,15 +1388,16 @@ const Chapter05 = () => {
         smell="electrified air, rain-soaked earth, wet stone"
         tableTitle="Arrives Alongside..."
         tableRows={[
-          ["Hurricane, sweeping away defiance."],
-          ["Twin tornados, ripping apart the unrepentant."],
-          ["Hailstorm, battering the guilty into confession."],
-          ["Lightning storm, searing away deceit."],
-          ["Torrential downpour, washing away corruption."],
-          ["Waterspouts, dragging wrongdoers to judgment."]
+          ["**Hurricane**, sweeping away defiance."],
+          ["**Twin tornados**, ripping apart the unrepentant."],
+          ["**Hailstorm**, battering the guilty into confession."],
+          ["**Lightning storm**, searing away deceit."],
+          ["**Torrential downpour**, washing away corruption."],
+          ["**Waterspouts**, dragging wrongdoers to judgment."]
         ]}
       />
       <Monster
+        id="hag-night"
         name="Hag, Night"
         type="trickster"
         colors={["midnight blue", "shadow black", "bruise purple"]}
@@ -1263,6 +1421,7 @@ const Chapter05 = () => {
         ]}
       />
       <Monster
+        id="hag-sea"
         name="Hag, Sea"
         type="tactician"
         colors={["kelp green", "brine teal", "storm gray"]}
@@ -1286,6 +1445,7 @@ const Chapter05 = () => {
         ]}
       />
       <Monster
+        id="hag-storm"
         name="Hag, Storm"
         type="blaster"
         colors={["electric blue", "rainy teal", "stormy gray"]}
@@ -1309,6 +1469,7 @@ const Chapter05 = () => {
         ]}
       />
       <Monster
+        id="hag-swamp"
         name="Hag, Swamp"
         type="trickster"
         colors={["bog green", "dank moss", "peat brown"]}
@@ -1332,6 +1493,7 @@ const Chapter05 = () => {
         ]}
       />
       <Monster
+        id="hell-hound"
         name="Hell Hound"
         type="predator"
         colors={["ember red", "coal black", "charcoal gray"]}
@@ -1345,15 +1507,16 @@ const Chapter05 = () => {
         smell="sulfur and brimstone, charred flesh"
         tableTitle="Call To Hunt"
         tableRows={[
-          ["Pursuing souls marked by broken oaths."],
-          ["Stalking souls escaped from the underworld."],
-          ["Hunting traitors who betrayed their own kin."],
-          ["Tracking those who spilt innocent blood."],
-          ["Hounding those who flee from justice."],
-          ["Wrongly on the trail of the completely innocent."]
+          ["Pursuing souls marked by **broken oaths**."],
+          ["Stalking souls **escaped** from the underworld."],
+          ["Hunting traitors who **betrayed** their own kin."],
+          ["Tracking those who spilt **innocent blood**."],
+          ["Hounding those who **flee from justice**."],
+          ["Wrongly on the trail of the **completely innocent**."]
         ]}
       />
       <Monster
+        id="hippogriff"
         name="Hippogriff"
         type="protector"
         colors={["chestnut brown", "soft ivory", "golden tawny"]}
@@ -1367,15 +1530,16 @@ const Chapter05 = () => {
         smell="earthy scent of open fields, fresh mountain air"
         tableTitle="Chosen Riders"
         tableRows={[
-          ["Legendary thief who helped it escape."],
-          ["Outcast noble seeking redemption."],
-          ["Ranger who patrols distant borders."],
-          ["Wicked hag that it thinks is a hero."],
-          ["Normal farmer that it was raised by."],
-          ["Gnoll that nursed it back to health."]
+          ["**Legendary thief** who helped it escape."],
+          ["**Outcast noble** seeking redemption."],
+          ["**Ranger** who patrols distant borders."],
+          ["**Wicked hag** that it thinks is a hero."],
+          ["**Normal farmer** that it was raised by."],
+          ["**Gnoll** that nursed it back to health."]
         ]}
       />
       <Monster
+        id="hydra"
         name="Hydra"
         type="brute"
         colors={["marsh green", "dusky blue", "rusty red"]}
@@ -1389,15 +1553,16 @@ const Chapter05 = () => {
         smell="rotting vegetation, stagnant muck water"
         tableTitle="Unique Head Regrowths"
         tableRows={[
-          ["Sludge head, which spews a poisonous fog."],
-          ["Only the skull, filled with necrotic energy."],
-          ["Eyeless head, which can read minds."],
-          ["Beautiful head with a hypnotic singsong."],
-          ["Horned head that can ram with force."],
-          ["The cut head rolls away to form a new hydra."]
+          ["**Sludge head**, which spews a poisonous fog."],
+          ["**Only the skull**, filled with necrotic energy."],
+          ["**Eyeless head**, which can read minds."],
+          ["**Beautiful head** with a hypnotic singsong."],
+          ["**Horned head** that can ram with force."],
+          ["The cut head rolls away to form a **new hydra**."]
         ]}
       />
       <Monster
+        id="lamia"
         name="Lamia"
         type="trickster"
         colors={["dark jade", "desert brown", "sandy gold"]}
@@ -1411,15 +1576,16 @@ const Chapter05 = () => {
         smell="desert breeze, faint jasmine, spicy myrrh"
         tableTitle="False Renown"
         tableRows={[
-          ["Whispers that prophecies fall from their lips."],
-          ["Claimed to show past secrets through dreams."],
-          ["Rumored to bind with honeyed promises."],
-          ["Fabled to recall lost souls from death's grasp."],
-          ["Promised to reveal one's deepest purpose."],
-          ["Songs tell of dreams woven into reality."]
+          ["**Whispers** that prophecies fall from their lips."],
+          ["**Claimed** to show past secrets through dreams."],
+          ["**Rumored** to bind with honeyed promises."],
+          ["**Fabled** to recall lost souls from death's grasp."],
+          ["**Promised** to reveal one's deepest purpose."],
+          ["**Songs** tell of dreams woven into reality."]
         ]}
       />
       <Monster
+        id="manticore"
         name="Manticore"
         type="marksman"
         colors={["burnt brown", "desert ochre", "dusty dawn"]}
@@ -1433,15 +1599,16 @@ const Chapter05 = () => {
         smell="dry fur, acrid dust, musky feline scent"
         tableTitle="Symbiotic Pairings"
         tableRows={[
-          ["Wyvern, hunts down injured prey."],
-          ["Hill giant, makes for a comfortable bed."],
-          ["Basilisk, waits to petrify escaping targets."],
-          ["Minotaur, lets it lair in the labyrinth."],
-          ["Chimera, a tense hunting pact."],
-          ["Underscourge, follows along from below."]
+          ["**Wyvern**, hunts down injured prey."],
+          ["**Hill giant**, makes for a comfortable bed."],
+          ["**Basilisk**, waits to petrify escaping targets."],
+          ["**Minotaur**, lets it lair in the labyrinth."],
+          ["**Chimera**, a tense hunting pact."],
+          ["**Underscourge**, follows along from below."]
         ]}
       />
       <Monster
+        id="medusa"
         name="Medusa"
         type="lurker"
         colors={["viper green", "bronze gold", "ancient stone"]}
@@ -1455,15 +1622,16 @@ const Chapter05 = () => {
         smell="ancient rot, moss-covered stone, stagnant air"
         tableTitle="Curse Origins"
         tableRows={[
-          ["Vanity, punished by a mirror that never reflects."],
-          ["Lies, broke a promise made in desperation"],
-          ["Greed, forced to forever protect the relic it stole."],
-          ["Paranoia, having been betrayed countless times."],
-          ["Jealousy, spawned from unfulfilled longing."],
-          ["Hubris, having believed itself above the gods."]
+          ["**Vanity**, punished by a mirror that never reflects."],
+          ["**Lies**, broke a promise made in desperation"],
+          ["**Greed**, forced to forever protect the relic it stole."],
+          ["**Paranoia**, having been betrayed countless times."],
+          ["**Jealousy**, spawned from unfulfilled longing."],
+          ["**Hubris**, having believed itself above the gods."]
         ]}
       />
       <Monster
+        id="mimic"
         name="Mimic"
         type="trickster"
         colors={["corrupted purple", "iron black", "aged oak"]}
@@ -1477,15 +1645,16 @@ const Chapter05 = () => {
         smell="sour decay of old adhesive, whiffs of trapped air"
         tableTitle="Object Forms"
         tableRows={[
-          ["Simple, like a barrel, rug, or bookshelf."],
-          ["Tricky, like a door, book, or cupboard."],
-          ["Inviting, like a plush chair, bed, or vanity table."],
-          ["Horrific, like a doll, mask, or coffin."],
-          ["Nostalgic, like a children's toy, old hat, or lute."],
-          ["Necessary, like a toilet, staircase, or well."]
+          ["**Simple**, like a barrel, rug, or bookshelf."],
+          ["**Tricky**, like a door, book, or cupboard."],
+          ["**Inviting**, like a plush chair, bed, or vanity table."],
+          ["**Horrific**, like a doll, mask, or coffin."],
+          ["**Nostalgic**, like a children's toy, old hat, or lute."],
+          ["**Necessary**, like a toilet, staircase, or well."]
         ]}
       />
       <Monster
+        id="minotaur"
         name="Minotaur"
         type="brute"
         colors={["dark leather", "bull brown", "bestial red"]}
@@ -1499,15 +1668,16 @@ const Chapter05 = () => {
         smell="earthy musk, old blood and sweat"
         tableTitle="Labyrinth Layouts"
         tableRows={[
-          ["Intricate sewer system of the ancient capital."],
-          ["Thorn-choked paths hiding mischievous fey."],
-          ["Tunnels of a sea cave, half-filled with water."],
-          ["Stone paths lined with fragile mirrors."],
-          ["Deep stepwell with various paths cut off."],
-          ["Enchanted woods with shifting pathways."]
+          ["**Intricate** sewer system of the ancient capital."],
+          ["Thorn-choked paths hiding **mischievous fey**."],
+          ["Tunnels of a sea cave, **half-filled** with water."],
+          ["Stone paths lined with **fragile mirrors**."],
+          ["**Deep stepwell** with various paths cut off."],
+          ["Enchanted woods with **shifting pathways**."]
         ]}
       />
       <Monster
+        id="naga"
         name="Naga"
         type="blaster"
         colors={["scaled green", "reptilian blue", "aged gold"]}
@@ -1531,6 +1701,7 @@ const Chapter05 = () => {
         ]}
       />
       <Monster
+        id="nightmare"
         name="Nightmare"
         type="marauder"
         colors={["hellfire red", "shadow black", "ember gray"]}
@@ -1544,15 +1715,16 @@ const Chapter05 = () => {
         smell="burnt sulfur, smoldering ashes"
         tableTitle="Wrathful Riders"
         tableRows={[
-          ["Exiled knight, who did nothing wrong."],
-          ["Betrayed queen, who deserved what she got."],
-          ["Hanged poet, whose words rang too true."],
-          ["Wayward prince, who will never go home."],
-          ["Desperate rebel, the last one alive."],
-          ["Bitter seer, whose warnings were ignored."]
+          ["**Exiled knight**, who did nothing wrong."],
+          ["**Betrayed queen**, who deserved what she got."],
+          ["**Hanged poet**, whose words rang too true."],
+          ["**Wayward prince**, who will never go home."],
+          ["**Desperate rebel**, the last one alive."],
+          ["**Bitter seer**, whose warnings were ignored."]
         ]}
       />
       <Monster
+        id="ochre-jelly"
         name="Ochre Jelly"
         type="brute"
         colors={["ochre", "sickly yellow", "murky brown"]}
@@ -1567,15 +1739,16 @@ const Chapter05 = () => {
         tableTitle="Newly Split Jellies"
         tableDescription="It's Not Sticky"
         tableRows={[
-          ["Azure jelly, with a freezing touch."],
-          ["Crimson jelly, shrieks and bleeds when it's struck."],
-          ["Verdant jelly, spreads carnivorous plant life."],
-          ["Mercury jelly Mercury jelly, perfectly reflects its surroundings."],
-          ["Spectral jelly, shimmers like a mirage."],
-          ["Onyx jelly, leaves a trail of thick, bubbling tar."]
+          ["**Azure jelly**, with a freezing touch."],
+          ["**Crimson jelly**, shrieks and bleeds when it's struck."],
+          ["**Verdant jelly**, spreads carnivorous plant life."],
+          ["**Mercury jelly** Mercury jelly, perfectly reflects its surroundings."],
+          ["**Spectral jelly**, shimmers like a mirage."],
+          ["**Onyx jelly**, leaves a trail of thick, bubbling tar."]
         ]}
       />
       <Monster
+        id="ogre"
         name="Ogre"
         type="brute"
         colors={["rustic tan", "dirty brown", "forest green"]}
@@ -1589,15 +1762,16 @@ const Chapter05 = () => {
         smell="stale sweat, dirt, lingering scent of raw meat"
         tableTitle="Chosen Leader Of The..."
         tableRows={[
-          ["Trolls, after marrying their chieftain."],
-          ["Hill goblins, fearing its wrath."],
-          ["Swamp spirits, bound to its will."],
-          ["Wild fey, attracted by its savagery."],
-          ["Hill giants, who think it's a genius."],
-          ["Other ogres, a small army of them."]
+          ["**Trolls**, after marrying their chieftain."],
+          ["**Hill goblins**, fearing its wrath."],
+          ["**Swamp spirits**, bound to its will."],
+          ["**Wild fey**, attracted by its savagery."],
+          ["**Hill giants**, who think it's a genius."],
+          ["**Other ogres**, a small army of them."]
         ]}
       />
       <Monster
+        id="otyugh"
         name="Otyugh"
         type="marauder"
         colors={["putrid brown", "sewer green", "rotten flesh"]}
@@ -1611,15 +1785,16 @@ const Chapter05 = () => {
         smell="putrid rot, decay, stagnant swamp water"
         tableTitle="Filthy Accomplices"
         tableRows={[
-          ["Spewing animated fungus swarms."],
-          ["Driven forward by a cult of ruin."],
-          ["Controlled by city sanitation workers."],
-          ["Followed by a horde of plague-ridden rats."],
-          ["Ridden by a foul goblin shaman."],
-          ["Possessed by a fallen druid's spirit."]
+          ["Spewing animated **fungus swarms**."],
+          ["Driven forward by a **cult of ruin**."],
+          ["Controlled by city **sanitation workers**."],
+          ["Followed by a horde of **plague-ridden rats**."],
+          ["Ridden by a foul **goblin shaman**."],
+          ["Possessed by a **fallen druid's spirit**."]
         ]}
       />
       <Monster
+        id="owlbear"
         name="Owlbear"
         type="brute"
         colors={["tawny feather", "furry brown", "talon slate"]}
@@ -1632,9 +1807,17 @@ const Chapter05 = () => {
         sound="rasping hoots, heavy thuds, trees shaking"
         smell="rank musk, trampled leaves, tang of blood"
         tableTitle=""
-        tableRows={[]}
+        tableRows={[
+          ["**Scholar**, face down, drawings strewn about."],
+          ["**Cultist**, dead in a tree without a scratch on them."],
+          ["**Messenger**, half-eaten scroll in hand."],
+          ["**Farmer**, holding a wilted bouquet."],
+          ["**Smuggler**, clutching a vial of purple poison."],
+          ["**Performer**, in full costume, mask still on."]
+        ]}
       />
       <Monster
+        id="pegasus"
         name="Pegasus"
         type="protector"
         colors={["silvery gray", "sky blue", "cloud white"]}
@@ -1648,15 +1831,16 @@ const Chapter05 = () => {
         smell="fresh air, faint scent of wildflowers"
         tableTitle="Carried Messages"
         tableRows={[
-          ["Royal summons, sealed with enchanted wax."],
-          ["Love letter filled with terrible poetry."],
-          ["Battle plan hastily scrawled."],
-          ["Desperate plea from a sworn enemy."],
-          ["Ransom note tied with black string."],
-          ["Official declaration of invasion."]
+          ["**Royal summons**, sealed with enchanted wax."],
+          ["**Love letter** filled with terrible poetry."],
+          ["**Battle plan** hastily scrawled."],
+          ["**Desperate plea** from a sworn enemy."],
+          ["**Ransom note** tied with black string."],
+          ["Official declaration of **invasion**."]
         ]}
       />
       <Monster
+        id="phoenix"
         name="Phoenix"
         type="blaster"
         colors={["inferno gold", "flaming orange", "ash gray"]}
@@ -1680,6 +1864,7 @@ const Chapter05 = () => {
         ]}
       />
       <Monster
+        id="rakshasa"
         name="Rakshasa"
         type="trickster"
         colors={["silken gold", "regal purple", "tiger orange"]}
@@ -1693,15 +1878,16 @@ const Chapter05 = () => {
         smell="incense, hints of expensive perfumes"
         tableTitle="Influence Networks"
         tableRows={[
-          ["Thieves guild. Fits in perfectly."],
-          ["Merchant coalition. Sold their soul for it."],
-          ["Pirate fleet. Won it in a duel."],
-          ["Noble house. Happily married into it."],
-          ["Mercenary band. Controls it from afar."],
-          ["Spy ring. Works for four different sides."]
+          ["**Thieves guild**. Fits in perfectly."],
+          ["**Merchant coalition**. Sold their soul for it."],
+          ["**Pirate fleet**. Won it in a duel."],
+          ["**Noble house**. Happily married into it."],
+          ["**Mercenary band**. Controls it from afar."],
+          ["**Spy ring**. Works for four different sides."]
         ]}
       />
       <Monster
+        id="remorhaz"
         name="Remorhaz"
         type="predator"
         colors={["serpentine blue", "molten red", "chitin gray"]}
@@ -1715,15 +1901,16 @@ const Chapter05 = () => {
         smell="burnt metal, scorched earth, sulfur"
         tableTitle="Worms Of Dark Prophecy"
         tableRows={[
-          ["ROUSE THE SLUMBERING GODS ENTOMBED"],
-          ["SEVER THE SACRED BONDS OF BLOOD AND ROOT"],
-          ["DEVOUR THE HEART OF THE HERO FORETOLD"],
-          ["UNSEAL THE CRYPT OF THE NAMELESS KING"],
-          ["TORCH THE ROOTS OF THE WORLD TREE"],
-          ["SILENCE THE BELLS OF THE ETERNAL CITY"]
+          ["**Rouse** the Slumbering Gods Entombed"],
+          ["**Sever** the Sacred Bonds of Blood and Root"],
+          ["**Devour** the Heart of the Hero Foretold"],
+          ["**Unseal** the Crypt of the NameleSS King"],
+          ["**Torch** the Roots of the World Tree"],
+          ["**Silence** the Bells of the Eternal City"]
         ]}
       />
       <Monster
+        id="roc"
         name="Roc"
         type="overseer"
         colors={["feathered sand", "dusty brown", "stormy blue"]}
@@ -1737,15 +1924,16 @@ const Chapter05 = () => {
         smell="overwhelming earthy musk, dry feathers"
         tableTitle="Potential Egg Buyers"
         tableRows={[
-          ["Dying empress, who will feed on it to live."],
-          ["Dragon, who will use it to barter for its life."],
-          ["Ancient lich, who will create its greatest minion."],
-          ["Storm giant, who will raise it as a mount."],
-          ["Infamous pirate, who sees it as a future skyship."],
-          ["Druidic order, who will unleash it on the world."]
+          ["**Dying empress**, who will feed on it to live."],
+          ["**Dragon**, who will use it to barter for its life."],
+          ["**Ancient lich**, who will create its greatest minion."],
+          ["**Storm giant**, who will raise it as a mount."],
+          ["**Infamous pirate**, who sees it as a future skyship."],
+          ["**Druidic order**, who will unleash it on the world."]
         ]}
       />
       <Monster
+        id="roper"
         name="Roper"
         type="lurker"
         colors={["cave earth", "rocky gray", "slate brown"]}
@@ -1759,15 +1947,16 @@ const Chapter05 = () => {
         smell="earthy stone, dank moss, faint rotting flesh"
         tableTitle="How It Survives Scrutiny"
         tableRows={[
-          ["Mimics dripping water, distant echoes."],
-          ["Moves incredibly quickly when not watched."],
-          ["Makes you feel like you are being watched."],
-          ["Absorbs light, creating longer shadows."],
-          ["Stays deathly still, even under attack."],
-          ["Leaves no trace of its previous meals."]
+          ["**Mimics** dripping water, distant echoes."],
+          ["Moves incredibly **quickly** when not watched."],
+          ["Makes you feel like you are **being watched**."],
+          ["**Absorbs light**, creating longer shadows."],
+          ["Stays **deathly still**, even under attack."],
+          ["Leaves **no trace** of its previous meals."]
         ]}
       />
       <Monster
+        id="rustmaw"
         name="Rustmaw"
         type="skirmisher"
         colors={["metal decay", "corroded umber", "oxide red"]}
@@ -1781,15 +1970,16 @@ const Chapter05 = () => {
         smell="sharp metallic tang, faint odor of decay"
         tableTitle="Residual Effects Of Eating Arcana"
         tableRows={[
-          ["Glows in the dark."],
-          ["Leaves a trail of sparks behind it."],
-          ["Floats slightly above the ground."],
-          ["Speaks in very basic terms."],
-          ["Vibrates like a tuning fork when struck."],
-          ["Is completely invisible."]
+          ["**Glows** in the dark."],
+          ["Leaves a **trail of sparks** behind it."],
+          ["**Floats** slightly above the ground."],
+          ["**Speaks** in very basic terms."],
+          ["**Vibrates** like a tuning fork when struck."],
+          ["Is completely **invisible**."]
         ]}
       />
       <Monster
+        id="shambling-mound"
         name="Shambling Mound"
         type="brute"
         colors={["vine green", "muck brown", "rotting green"]}
@@ -1803,15 +1993,16 @@ const Chapter05 = () => {
         smell="rotting vegetation, swamp muck, wet earth"
         tableTitle="Buried Within"
         tableRows={[
-          ["Grand druid, sleeping within a cocoon."],
-          ["Ancient coffin, sealing away a cursed vampire."],
-          ["Nearly endless amount of animated skeletons."],
-          ["Mask of twisted vines that whispers riddles."],
-          ["Fey gateway, pulsing with otherwordly energy."],
-          ["Warbanner of the true queen."]
+          ["**Grand druid**, sleeping within a cocoon."],
+          ["**Ancient coffin**, sealing away a cursed vampire."],
+          ["Nearly endless amount of **animated skeletons**."],
+          ["**Mask** of twisted vines that whispers riddles."],
+          ["**Fey gateway**, pulsing with otherwordly energy."],
+          ["Warbanner of the **true queen**."]
         ]}
       />
       <Monster
+        id="sphinx"
         name="Sphinx"
         type="tactician"
         colors={["ancient gold", "dusky blue", "desert sand"]}
@@ -1825,15 +2016,16 @@ const Chapter05 = () => {
         smell="warm sand, ancient incense, faint floral scents"
         tableTitle="Wish Choices"
         tableRows={[
-          ["Ask any yes or no question."],
-          ["Ask for any one item and it is yours."],
-          ["Ask to be any age you would like—forever?"],
-          ["Ask for any one being to cease to be."],
-          ["Ask for any one being to be brought back."],
-          ["Ask for a chance to correct a single regret."]
+          ["Ask any **yes or no** question."],
+          ["Ask for any **one item** and it is yours."],
+          ["Ask to be any **age** you would like—forever?"],
+          ["Ask for any one being to **cease to be**."],
+          ["Ask for any one being to be **brought back**."],
+          ["Ask for a chance to correct a **single regret**."]
         ]}
       />
       <Monster
+        id="troll"
         name="Troll"
         type="marauder"
         colors={["earthy brown", "granite gray", "muddy green"]}
@@ -1847,15 +2039,16 @@ const Chapter05 = () => {
         smell="stale swamp water, wet fur, strong musk of mold"
         tableTitle="Overlooked Lairs"
         tableRows={[
-          ["Abandoned mill, half-sunk in the swamp."],
-          ["Ruined bathhouse, flooded with muck."],
-          ["Crumbling fort lost in dense woods."],
-          ["Hollowed-out tree astride a grain field."],
-          ["Ruined chapel overtaken by brambles."],
-          ["Rocky cave behind a waterfall."]
+          ["**Abandoned mill**, half-sunk in the swamp."],
+          ["**Ruined bathhouse**, flooded with muck."],
+          ["**Crumbling fort** lost in dense woods."],
+          ["**Hollowed-out tree** astride a grain field."],
+          ["**Ruined chapel** overtaken by brambles."],
+          ["**Rocky cave** behind a waterfall."]
         ]}
       />
       <Monster
+        id="underscourge"
         name="Underscourge"
         type="tactician"
         colors={["chitin bronze", "earthen ochre", "stone ochre"]}
@@ -1869,15 +2062,16 @@ const Chapter05 = () => {
         smell="fresh-turned earth, mineral-rich tang, earthy musk"
         tableTitle="Collapses..."
         tableRows={[
-          ["Farmer's pasture, full of cows."],
-          ["Town square during a festival."],
-          ["Noble's garden, during a feast."],
-          ["Bustling mine, just as they struck the motherlode."],
-          ["General's tent, after a glorious victory."],
-          ["Royal cemetery, as the king is laid to rest."]
+          ["**Farmer's pasture**, full of cows."],
+          ["**Town square** during a festival."],
+          ["**Noble's garden**, during a feast."],
+          ["**Bustling mine**, just as they struck the motherlode."],
+          ["**General's tent**, after a glorious victory."],
+          ["**Royal cemetery**, as the king is laid to rest."]
         ]}
       />
       <Monster
+        id="undead-ghast"
         name="Undead, Ghast"
         type="brute"
         colors={["weathered flesh", "decayed green", "bloodstain red"]}
@@ -1891,15 +2085,16 @@ const Chapter05 = () => {
         smell="decayed flesh, sour stench, mold"
         tableTitle="Bygone Plagues"
         tableRows={[
-          ["The Weeping Rot, turning flesh to black ooze."],
-          ["The Crimson Blight, causing veins to burst."],
-          ["The Ashen Grip, hardening limbs into stone."],
-          ["The Vile Verdancy, growing plants from wounds."],
-          ["The Choking Miasma, filling lungs with sludge."],
-          ["The Thorned Decay, sprouting barbs from skin."]
+          ["The **Weeping Rot**, turning flesh to black ooze."],
+          ["The **Crimson Blight**, causing veins to burst."],
+          ["The **Ashen Grip**, hardening limbs into stone."],
+          ["The **Vile Verdancy**, growing plants from wounds."],
+          ["The **Choking Miasma**, filling lungs with sludge."],
+          ["The **Thorned Decay**, sprouting barbs from skin."]
         ]}
       />
       <Monster
+        id="undead-ghost"
         name="Undead, Ghost"
         type="blaster"
         colors={["spirit silver", "pale mist", "misty blue"]}
@@ -1923,6 +2118,7 @@ const Chapter05 = () => {
         ]}
       />
       <Monster
+        id="undead-lich"
         name="Undead, Lich"
         type="overseer"
         colors={["ancient purple", "rotten green", "bone white"]}
@@ -1936,15 +2132,16 @@ const Chapter05 = () => {
         smell="ancient dust, burnt incense, sharp cloying decay"
         tableTitle="Overly Grandiose Dark Rituals"
         tableRows={[
-          ["Enslave every soul in the realm to its will."],
-          ["Steal the life essence of the royal bloodline."],
-          ["Summon the Bonegrinder, eater of legends."],
-          ["Sing the song that will end the world."],
-          ["Raise a necropolis from which to rule."],
-          ["Twist the vast forests into a maze of undead trees."]
+          ["**Enslave** every soul in the realm to its will."],
+          ["**Steal** the life essence of the royal bloodline."],
+          ["**Summon** the Bonegrinder, eater of legends."],
+          ["**Sing** the song that will end the world."],
+          ["**Raise** a necropolis from which to rule."],
+          ["**Twist** the vast forests into a maze of undead trees."]
         ]}
       />
       <Monster
+        id="undead-vampire"
         name="Undead, Vampire"
         type="marauder"
         colors={["deep crimson", "midnight black", "moonlit ivory"]}
@@ -1958,15 +2155,16 @@ const Chapter05 = () => {
         smell="old blood, faint rose perfume"
         tableTitle="Siring Intentions"
         tableRows={[
-          ["Punish them for betraying your trust."],
-          ["Offer them a twisted redemption."],
-          ["Teach them the vanity of mortal life."],
-          ["Preserve their forbidden love."],
-          ["Trap them in unending regret."],
-          ["Use them to control those they once loved."]
+          ["Punish them for **betraying your trust**."],
+          ["Offer them a **twisted redemption**."],
+          ["Teach them the **vanity** of mortal life."],
+          ["Preserve their **forbidden love**."],
+          ["Trap them in **unending regret**."],
+          ["Use them to **control** those they once loved."]
         ]}
       />
       <Monster
+        id="undead-wight"
         name="Undead, Wight"
         type="brute"
         colors={["void black", "ghostly white", "deathly gray"]}
@@ -1980,15 +2178,16 @@ const Chapter05 = () => {
         smell="damp earth, rot, stale air"
         tableTitle="Cursed Armaments"
         tableRows={[
-          ["Heartstealer, a blade that drains courage."],
-          ["Mindpiercer, a spear that devours memories."],
-          ["Blackhelm, a helm that compels obedience."],
-          ["Soulcrusher, a mace that fills with dread."],
-          ["Rise, a sword that raises new wights."],
-          ["Wailer, a spiked chain that binds spirits to it."]
+          ["**Heartstealer**, a blade that drains courage."],
+          ["**Mindpiercer**, a spear that devours memories."],
+          ["**Blackhelm**, a helm that compels obedience."],
+          ["**Soulcrusher**, a mace that fills with dread."],
+          ["**Rise**, a sword that raises new wights."],
+          ["**Wailer**, a spiked chain that binds spirits to it."]
         ]}
       />
       <Monster
+        id="undead-wraith"
         name="Undead, Wraith"
         type="marauder"
         colors={["shadowy purple", "foggy gray", "ghostly blue"]}
@@ -2002,15 +2201,16 @@ const Chapter05 = () => {
         smell="frigid air, damp stone, metallic tang of fear"
         tableTitle="Horrific Origins"
         tableRows={[
-          ["Untold number of dead from the war."],
-          ["Royal court and family massacred during a coup."],
-          ["Serial killer's decades long reign of terror."],
-          ['Massacre of innocent "monstrous" village.'],
-          ["Plague spread by one person jumping ship."],
-          ["Community's noble sacrifice going unnoticed."]
+          ["Untold number of **dead from the war**."],
+          ["Royal court and family massacred during a **coup**."],
+          ["**Serial killer's** decades long reign of terror."],
+          ['Massacre of innocent **"monstrous" village**.'],
+          ["**Plague** spread by one person jumping ship."],
+          ["Community's **noble sacrifice** going unnoticed."]
         ]}
       />
       <Monster
+        id="unicorn"
         name="Unicorn"
         type="protector"
         colors={["dusky lavender", "pale rose", "verdant mint"]}
@@ -2024,15 +2224,16 @@ const Chapter05 = () => {
         smell="whiff of lavender, morning dew, ancient woods"
         tableTitle="Blessings"
         tableRows={[
-          ["Five more healthy years of old age."],
-          ["Sixth sense for when you're being deceived."],
-          ["Immunity to poisons and diseases."],
-          ["You can understand any language."],
-          ["Cleanse any water you touch of impurities."],
-          ["Always know the direction to home."]
+          ["Five more **healthy years** of old age."],
+          ["**Sixth sense** for when you're being deceived."],
+          ["**Immunity** to poisons and diseases."],
+          ["You can **understand** any language."],
+          ["**Cleanse** any water you touch of impurities."],
+          ["Always know the **direction** to home."]
         ]}
       />
       <Monster
+        id="will-o-wisp"
         name="Will-o'-wisp"
         type="trickster"
         colors={["haunted green", "phantom violet", "spectral blue"]}
@@ -2046,15 +2247,16 @@ const Chapter05 = () => {
         smell="fleeting yet familiar and nostalgic smells"
         tableTitle="Secrets To Reveal"
         tableRows={[
-          ["Final resting place of a hero never mourned."],
-          ["Wooden mask marked with a lost clan's sigil."],
-          ["Secret names of the will-o'-wisps."],
-          ["Undying flame hidden in the swamp's heart."],
-          ["Waterlogged diary with half-legible confessions."],
-          ["Still-beating heart buried within twisted roots."]
+          ["**Final resting place** of a hero never mourned."],
+          ["**Wooden mask** marked with a lost clan's sigil."],
+          ["**Secret names** of the will-o'-wisps."],
+          ["**Undying flame** hidden in the swamp's heart."],
+          ["**Waterlogged diary** with half-legible confessions."],
+          ["**Still-beating heart** buried within twisted roots."]
         ]}
       />
       <Monster
+        id="wyvern"
         name="Wyvern"
         type="predator"
         colors={["dark slate", "bronzed ember", "savage green"]}
@@ -2068,15 +2270,16 @@ const Chapter05 = () => {
         smell="smell of their far off nesting location"
         tableTitle="Wyvern Masters"
         tableRows={[
-          ["Gorrak, infamous sky pirate."],
-          ["Laraen, rogue mage bent on vengeance."],
-          ["Zurak, black-market smuggler of wyvern eggs."],
-          ["Tylara, a druid wielding the power of storms."],
-          ["Drazul, assassin for the highest bidder."],
-          ["Serdrak, mercenary lord of the skies."]
+          ["**Gorrak**, infamous sky pirate."],
+          ["**Laraen**, rogue mage bent on vengeance."],
+          ["**Zurak**, black-market smuggler of wyvern eggs."],
+          ["**Tylara**, a druid wielding the power of storms."],
+          ["**Drazul**, assassin for the highest bidder."],
+          ["**Serdrak**, mercenary lord of the skies."]
         ]}
       />
       <Monster
+        id="yeti"
         name="Yeti"
         type="brute"
         colors={["frostbite gray", "glacial white", "icy blue"]}
@@ -2090,12 +2293,12 @@ const Chapter05 = () => {
         smell="fresh snow cut by a wild tang"
         tableTitle="Under The Ice"
         tableRows={[
-          ["City frozen in time, its bells still ringing."],
-          ["Souls wandering, lost beneath the ice."],
-          ["Portal to a realm of eternal winter."],
-          ["Cursed blade locked in unmelting ice."],
-          ["Phoenix stuck in a cycle of death and rebirth."],
-          ["Balor shackled in ice-forged chains."]
+          ["**City** frozen in time, its bells still ringing."],
+          ["**Souls** wandering, lost beneath the ice."],
+          ["**Portal** to a realm of eternal winter."],
+          ["**Cursed blade** locked in unmelting ice."],
+          ["**Phoenix** stuck in a cycle of death and rebirth."],
+          ["**Balor** shackled in ice-forged chains."]
         ]}
       />
     </Page>

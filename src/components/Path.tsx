@@ -1,8 +1,9 @@
+import { Fragment, type ReactNode } from "react";
+
 import Heading from "@/components/ui/Heading";
 import Strong from "@/components/ui/Strong";
 import StrongEm from "@/components/ui/StrongEm";
 import Text from "@/components/ui/Text";
-import { Fragment, type ReactNode } from "react";
 
 type PathProps = {
   id?: string;

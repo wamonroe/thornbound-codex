@@ -1,6 +1,7 @@
-import TableContext, { type TableContextProps } from "@/components/ui/Table/TableContext";
 import classNames from "classnames";
 import { type ReactNode } from "react";
+
+import TableContext, { type TableContextProps } from "@/components/ui/Table/TableContext";
 
 type TableVariant = "blank" | "striped" | "columns" | "solid" | "simple";
 type TableProps = {

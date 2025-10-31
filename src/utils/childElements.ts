@@ -1,4 +1,4 @@
-import { Children, isValidElement, type ReactNode } from "react";
+import { Children, type ReactNode, isValidElement } from "react";
 
 export const hasChildElementOfType = (children: ReactNode, elementDisplayName: string): boolean => {
   return Children.toArray(children).some((child) => {

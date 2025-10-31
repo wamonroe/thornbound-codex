@@ -1,6 +1,7 @@
+import { type ReactNode, useContext } from "react";
+
 import SmallCaps from "@/components/ui/SmallCaps";
 import TableContext, { type TableContextProps } from "@/components/ui/Table/TableContext";
-import { useContext, type ReactNode } from "react";
 
 type ContextAwareSmallCapsProps = {
   children: ReactNode;

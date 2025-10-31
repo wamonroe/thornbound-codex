@@ -1,9 +1,11 @@
-import Strong from "@/components/ui/Strong";
-import Tag from "@/components/ui/Tag";
-import { getSpacingSize, type SpacingSize } from "@/utils/spacing";
-import { getTextSize } from "@/utils/textSize";
 import classNames from "classnames";
 import type { ReactNode } from "react";
+
+import Strong from "@/components/ui/Strong";
+import Tag from "@/components/ui/Tag";
+
+import { type SpacingSize, getSpacingSize } from "@/utils/spacing";
+import { getTextSize } from "@/utils/textSize";
 
 type TalentProps = {
   name: string;

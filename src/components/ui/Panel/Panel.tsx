@@ -1,11 +1,12 @@
-import { hasChildElementOfType } from "@/utils/childElements";
-import { type DepthValue } from "@/utils/depth";
-import { getFlexAndGridOptions, type FlexAndGridOptions } from "@/utils/flexAndGrid";
-import { getPaddingSize, type PaddingSize } from "@/utils/padding";
-import { getSpacingSize, type SpacingSize } from "@/utils/spacing";
-import { getTextSize, type TextSize } from "@/utils/textSize";
 import classNames from "classnames";
 import type { ReactNode } from "react";
+
+import { hasChildElementOfType } from "@/utils/childElements";
+import { type DepthValue } from "@/utils/depth";
+import { type FlexAndGridOptions, getFlexAndGridOptions } from "@/utils/flexAndGrid";
+import { type PaddingSize, getPaddingSize } from "@/utils/padding";
+import { type SpacingSize, getSpacingSize } from "@/utils/spacing";
+import { type TextSize, getTextSize } from "@/utils/textSize";
 
 type VariantType = "blank" | "normal" | "deep";
 type PanelProps = {
@@ -41,7 +42,7 @@ const Panel = ({
   const hasPanelRows = hasChildElementOfType(children, "Panel.Row");
 
   const containerCss = classNames(
-    "flex flex-col shrink-0",
+    "flex shrink-0 flex-col",
     getTextSize(textSize),
     getFlexAndGridOptions(flexAndGridOptions),
     {
@@ -49,7 +50,7 @@ const Panel = ({
       "border-t-2": !hasTitle && border
     }
   );
-  const titleCss = classNames("bg-solid rounded-t-sm py-1 px-4 text-solid-color", {
+  const titleCss = classNames("rounded-t-sm text-solid-color bg-solid px-4 py-1", {
     "flex justify-center": centerTitle
   });
   const contentCss = classNames(
@@ -73,11 +74,11 @@ const Panel = ({
     <div className={containerCss}>
       {hasTitle && (
         <div className={titleCss}>
-          <div className="flex justify-between items-baseline w-full flex-wrap">
+          <div className="flex w-full flex-wrap items-baseline justify-between">
             <div className={classNames("text-base font-bold", { uppercase: !titleNormalCaps })}>
               {title}
             </div>
-            <div className="text-sm font-medium ml-2">
+            <div className="ml-2 text-sm font-medium">
               <em>{description}</em>
             </div>
           </div>

@@ -1,7 +1,9 @@
-import SmallCaps from "@/components/ui/SmallCaps";
-import { type MutuallyExclusiveBooleanProps } from "@/utils/customTypes";
 import classNames from "classnames";
 import { type ReactNode } from "react";
+
+import SmallCaps from "@/components/ui/SmallCaps";
+
+import { type MutuallyExclusiveBooleanProps } from "@/utils/customTypes";
 
 export type StrongProps = {
   children: ReactNode;

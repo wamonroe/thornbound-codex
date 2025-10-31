@@ -1,10 +1,12 @@
+import classNames from "classnames";
+import { useContext } from "react";
+
 import TableContext, { type TableContextProps } from "@/components/ui/Table/TableContext";
+
 import { getCellPaddingSize } from "@/utils/cellPadding";
 import { getTextAlign } from "@/utils/textAlign";
 import { getTextSize } from "@/utils/textSize";
 import { getVerticalAlign } from "@/utils/verticalAlign";
-import classNames from "classnames";
-import { useContext } from "react";
 
 export const useTableCellCss = (overrides: TableContextProps, defaultCss?: string) => {
   const { cellPadding, align, textSize, verticalAlign, allCaps, italic } = useContext(TableContext);

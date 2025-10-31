@@ -1,5 +1,6 @@
-import { getBorderColor, type BorderColor } from "@/utils/borderColor";
 import classNames from "classnames";
+
+import { type BorderColor, getBorderColor } from "@/utils/borderColor";
 
 type LineProps = {
   color?: BorderColor;

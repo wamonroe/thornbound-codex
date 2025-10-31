@@ -1,8 +1,9 @@
-import Container from "@/components/app/Container";
-import Heading from "@/components/ui/Heading";
 import { faBarsStaggered } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames";
+
+import Container from "@/components/app/Container";
+import Heading from "@/components/ui/Heading";
 
 type TitleProps = {
   bookTitle?: string;
@@ -21,17 +22,17 @@ const Title = ({ bookTitle, title, pretitle, hasNavigation, onOpenNav }: TitlePr
   }
 
   return (
-    <div className="sticky bg-panel-2 shadow py-2 w-full top-16 left-0 z-30 lg:top-0">
+    <div className="sticky top-16 left-0 z-30 w-full bg-panel-2 py-2 shadow lg:top-0">
       <Container spacing="xs">
         {hasBookTitle && (
           <div className="flex items-center justify-between">
-            <div className={classNames("font-heading font-bold text-2xl italic", {})}>
+            <div className={classNames("font-heading text-2xl font-bold italic", {})}>
               {bookTitle}
             </div>
             {!hasTitle && hasNavigation && (
               <button
                 type="button"
-                className="ml-1 hover:bg-panel-3 rounded-md p-2 flex-none"
+                className="ml-1 flex-none rounded-md p-2 hover:bg-panel-3"
                 onClick={onOpenNav}
               >
                 <span className="sr-only">Open page navigation</span>
@@ -48,7 +49,7 @@ const Title = ({ bookTitle, title, pretitle, hasNavigation, onOpenNav }: TitlePr
             {hasNavigation && (
               <button
                 type="button"
-                className="ml-1 hover:bg-panel-3 rounded-md p-2 flex-none"
+                className="ml-1 flex-none rounded-md p-2 hover:bg-panel-3"
                 onClick={onOpenNav}
               >
                 <span className="sr-only">Open page navigation</span>

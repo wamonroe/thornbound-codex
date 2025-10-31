@@ -1,7 +1,9 @@
+import type { ReactNode } from "react";
+
 import SectionHeading, { type SectionHeadingProps } from "@/components/ui/Section/SectionHeading";
 import Stack from "@/components/ui/Stack";
+
 import type { SpacingSize } from "@/utils/spacing";
-import type { ReactNode } from "react";
 
 type SectionProps = {
   title: ReactNode;

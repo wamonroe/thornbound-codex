@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "typecheck": "react-router typegen && tsc",
     "check-updates": "npx npm-check-updates",
-    "do-updates": "npx npm-check-updates -u"
+    "do-updates": "npx npm-check-updates -u",
+    "prettier": "prettier ./src/**/* --write"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.1.0",
@@ -29,6 +30,7 @@
     "@eslint/js": "^9.37.0",
     "@react-router/dev": "^7.9.4",
     "@tailwindcss/vite": "^4.1.14",
+    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "@types/node": "^24.7.2",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
@@ -40,6 +42,7 @@
     "eslint-plugin-react-refresh": "^0.4.23",
     "globals": "^16.4.0",
     "prettier": "3.6.2",
+    "prettier-plugin-tailwindcss": "^0.7.1",
     "tailwindcss": "^4.1.14",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.1",

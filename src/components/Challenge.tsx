@@ -1,12 +1,14 @@
+import classNames from "classnames";
+import { type ReactNode } from "react";
+
 import ChallengeSuspense from "@/components/ChallengeSuspense";
 import ReferenceList, { type ReferenceItem } from "@/components/ReferenceList";
 import Line from "@/components/ui/Line";
 import SmallCaps from "@/components/ui/SmallCaps";
 import Strong from "@/components/ui/Strong";
-import { getDepth, type DepthValue } from "@/utils/depth";
-import { getTextSize, type TextSize } from "@/utils/textSize";
-import classNames from "classnames";
-import { type ReactNode } from "react";
+
+import { type DepthValue, getDepth } from "@/utils/depth";
+import { type TextSize, getTextSize } from "@/utils/textSize";
 
 type WidthSize = "small" | "medium" | "large" | "full";
 type ChallengeProps = {
@@ -45,20 +47,20 @@ const Challenge = ({
     "w-56": width === "small"
   });
   const referencesCss = classNames(
-    "bg-panel-3 px-4 py-1 italic text-sm space-y-1",
+    "space-y-1 bg-panel-3 px-4 py-1 text-sm italic",
     getDepth(depth + 1)
   );
-  const contentCss = classNames("bg-panel-1 rounded-b-sm px-2 py-2 space-y-2", getDepth(depth));
+  const contentCss = classNames("space-y-2 rounded-b-sm bg-panel-1 px-2 py-2", getDepth(depth));
 
   return (
     <div className={containerCss}>
-      <div className="relative bg-solid text-solid-color font-bold px-4 py-1 rounded-t-sm">
+      <div className="relative rounded-t-sm text-solid-color bg-solid px-4 py-1 font-bold">
         <SmallCaps>
           {poolSize && <>{poolSize}d | </>}
           {title}
         </SmallCaps>
         {!noSuspense && (
-          <div className="absolute -bottom-3 right-1">
+          <div className="absolute right-1 -bottom-3">
             <ChallengeSuspense />
           </div>
         )}
@@ -116,7 +118,7 @@ const ChallengeItem = ({ variant, children }: ChallengeItemProps) => {
   const icon = challengeItemIcons[variant];
   return (
     <li className="flex">
-      <div className="w-6 text-center flex-none">{icon}</div>
+      <div className="w-6 flex-none text-center">{icon}</div>
       <div className="flex-1">{children}</div>
     </li>
   );

@@ -1,4 +1,4 @@
-import { cloneElement, isValidElement, type ReactElement, type ReactNode } from "react";
+import { Fragment, type ReactElement, type ReactNode, cloneElement, isValidElement } from "react";
 
 type SmallCapsProps = {
   children: ReactNode;
@@ -12,7 +12,7 @@ const renderSmallCaps = (node: ReactNode): ReactNode => {
           {part}
         </span>
       ) : (
-        part
+        <Fragment key={`${part}-${index}`}>{part}</Fragment>
       )
     );
   }

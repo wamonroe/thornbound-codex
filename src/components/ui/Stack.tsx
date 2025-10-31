@@ -1,8 +1,9 @@
-import { getAlignItems, type AlignItemsValue } from "@/utils/alignItems";
-import { getFlexAndGridOptions, type FlexAndGridOptions } from "@/utils/flexAndGrid";
-import { getSpacingSize, type SpacingSize } from "@/utils/spacing";
 import classNames from "classnames";
 import type { ReactNode } from "react";
+
+import { type AlignItemsValue, getAlignItems } from "@/utils/alignItems";
+import { type FlexAndGridOptions, getFlexAndGridOptions } from "@/utils/flexAndGrid";
+import { type SpacingSize, getSpacingSize } from "@/utils/spacing";
 
 type StackItemProps = {
   children: ReactNode;

@@ -1,3 +1,6 @@
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import Page, { type PageNavigationItem } from "@/components/app/Page";
 import Em from "@/components/ui/Em";
 import Heading from "@/components/ui/Heading";
@@ -11,8 +14,6 @@ import Strong from "@/components/ui/Strong";
 import StrongEm from "@/components/ui/StrongEm";
 import Table from "@/components/ui/Table";
 import Text from "@/components/ui/Text";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const navigation: PageNavigationItem[] = [
   { name: "Exploring the Grimwild", anchor: "#exploring-the-grimwild" },

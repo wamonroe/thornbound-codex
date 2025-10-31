@@ -1,6 +1,7 @@
-import Line from "@/components/ui/Line";
 import classNames from "classnames";
 import { type ReactNode } from "react";
+
+import Line from "@/components/ui/Line";
 
 type BookTitleProps = {
   subtitle?: string;
@@ -10,9 +11,9 @@ type BookTitleProps = {
 const BookTitle = ({ subtitle, children }: BookTitleProps) => {
   return (
     <>
-      <div className={classNames("text-center font-heading leading-none mt-12")}>
-        <div className="text-6xl uppercase font-bold">{children}</div>
-        {subtitle && <div className="text-4xl italic font-light">{subtitle}</div>}
+      <div className={classNames("mt-12 text-center font-heading leading-none")}>
+        <div className="text-6xl font-bold uppercase">{children}</div>
+        {subtitle && <div className="text-4xl font-light italic">{subtitle}</div>}
       </div>
       <Line color="muted" />
     </>

@@ -1,12 +1,13 @@
-import { getIconSize, type IconSizeValue } from "@/utils/iconSize";
 import classNames from "classnames";
+
+import { type IconSizeValue, getIconSize } from "@/utils/iconSize";
 
 type PerspectiveDiceOneProps = {
   size?: IconSizeValue;
 };
 
 const PerspectiveDiceOne = ({ size }: PerspectiveDiceOneProps) => {
-  const svgCss = classNames(getIconSize(size));
+  const svgCss = classNames("inline", getIconSize(size));
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -1,7 +1,8 @@
-import type { MutuallyExclusiveBooleanProps } from "@/utils/customTypes";
-import { getTextSize, type TextSize } from "@/utils/textSize";
 import classNames from "classnames";
 import type { ReactNode } from "react";
+
+import type { MutuallyExclusiveBooleanProps } from "@/utils/customTypes";
+import { type TextSize, getTextSize } from "@/utils/textSize";
 
 type MutedProps = {
   size?: TextSize;

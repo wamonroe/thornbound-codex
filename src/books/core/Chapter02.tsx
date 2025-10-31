@@ -1,8 +1,10 @@
-import Page, { type PageNavigationItem } from "@/components/app/Page";
+import { faBurst, faExclamation, faQuestion } from "@fortawesome/free-solid-svg-icons";
+
 import Battleground from "@/components/Battleground";
 import CampaignPool from "@/components/CampaignPool";
 import Challenge from "@/components/Challenge";
 import ChallengeSuspense from "@/components/ChallengeSuspense";
+import Page, { type PageNavigationItem } from "@/components/app/Page";
 import Em from "@/components/ui/Em";
 import Grid from "@/components/ui/Grid";
 import Heading from "@/components/ui/Heading";
@@ -12,13 +14,11 @@ import Move from "@/components/ui/Move";
 import Muted from "@/components/ui/Muted";
 import Panel from "@/components/ui/Panel";
 import Section from "@/components/ui/Section";
-
 import Stack from "@/components/ui/Stack";
 import Strong from "@/components/ui/Strong";
 import StrongEm from "@/components/ui/StrongEm";
 import Table from "@/components/ui/Table";
 import Text from "@/components/ui/Text";
-import { faBurst, faExclamation, faQuestion } from "@fortawesome/free-solid-svg-icons";
 
 const navigation: PageNavigationItem[] = [
   { name: "Running Grimwild", anchor: "#running-grimwild" },
