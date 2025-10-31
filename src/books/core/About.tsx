@@ -1,11 +1,12 @@
-import Page from "@/components/app/Page";
 import BookTitle from "@/components/BookTitle";
+import Page from "@/components/app/Page";
 import Em from "@/components/ui/Em";
 import ExternalLink from "@/components/ui/ExternalLink";
 import Line from "@/components/ui/Line";
 import Stack from "@/components/ui/Stack";
 import Strong from "@/components/ui/Strong";
 import Text from "@/components/ui/Text";
+
 import CraftedForGrimwild from "@/svgs/CraftedForGrimwild";
 import MadeWithMoxie from "@/svgs/MadeWithMoxie";
 

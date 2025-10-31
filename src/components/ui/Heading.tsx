@@ -38,7 +38,7 @@ const Heading = ({
   const hasPretitle = pretitle && pretitle.length > 0;
   const Component: ElementType = `h${level}` as HeadingTag;
 
-  const pretitleCss = classNames("font-bold font-text uppercase", pretitleSizeCss[level]);
+  const pretitleCss = classNames("font-text font-bold uppercase", pretitleSizeCss[level]);
   const headingCss = classNames(
     "font-heading font-bold text-heading-color uppercase",
     headingSizeCss[level],

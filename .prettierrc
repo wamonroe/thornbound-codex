@@ -1,5 +1,11 @@
 {
+  "importOrder": ["^@/books/(.*)$", "^@/components/(.*)$", "^@/svgs/(.*)$", "^@/utils/(.*)$"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "plugins": ["@trivago/prettier-plugin-sort-imports", "prettier-plugin-tailwindcss"],
   "printWidth": 100,
   "tabWidth": 2,
-  "trailingComma": "none"
+  "tailwindFunctions": ["classNames"],
+  "tailwindStylesheet": "./src/app.css",
+  "trailingComma": "none",
 }

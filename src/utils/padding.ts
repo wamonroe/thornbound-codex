@@ -1,7 +1,8 @@
+import classNames from "classnames";
+
 type PaddingSizeValue = "none" | "xs" | "sm" | "md" | "lg";
 type PaddingObjectSide = "x" | "y";
 type PaddingObject = { [K in PaddingObjectSide]?: PaddingSizeValue };
-import classNames from "classnames";
 
 export type PaddingSize = PaddingSizeValue | PaddingObject;
 

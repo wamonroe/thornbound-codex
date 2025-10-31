@@ -1,9 +1,11 @@
+import classNames from "classnames";
+import type { ReactNode } from "react";
+
 import Line from "@/components/ui/Line";
 import Panel from "@/components/ui/Panel";
 import Strong from "@/components/ui/Strong";
+
 import { getSpacingSize } from "@/utils/spacing";
-import classNames from "classnames";
-import type { ReactNode } from "react";
 
 type CoreTalentProps = {
   name: string;
@@ -14,8 +16,8 @@ type CoreTalentProps = {
 const CoreTalent = ({ name, growth, children }: CoreTalentProps) => {
   return (
     <Panel>
-      <div className={classNames("flex justify-between items-baseline")}>
-        <div className="font-heading text-xl uppercase font-bold">{name}</div>
+      <div className={classNames("flex items-baseline justify-between")}>
+        <div className="font-heading text-xl font-bold uppercase">{name}</div>
         <div className="font-bold uppercase">Core Talent</div>
       </div>
       <div className={getSpacingSize("sm")}>{children}</div>

@@ -1,5 +1,6 @@
-import SmallCaps from "@/components/ui/SmallCaps";
 import { type ReactNode } from "react";
+
+import SmallCaps from "@/components/ui/SmallCaps";
 
 type MoveProps = {
   children: ReactNode;

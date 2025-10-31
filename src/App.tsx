@@ -85,18 +85,18 @@ const App = () => {
 
       <div className="sticky top-0 z-40 bg-panel-1 lg:hidden">
         <Container>
-          <div className="flex items-center h-16">
+          <div className="flex h-16 items-center">
             <button
               type="button"
               onClick={() => setSidebarOpen(true)}
-              className="mr-1 hover:bg-panel-2 rounded-md p-1"
+              className="mr-1 rounded-md p-1 hover:bg-panel-2"
             >
               <span className="sr-only">Open site navigation</span>
               <FontAwesomeIcon icon={faBars} size="lg" aria-hidden="true" />
             </button>
             <div className="flex-1">
-              <span className="font-heading text-heading-color font-bold text-lg">Grimwild</span>
-              <span className="text-muted-color text-base ml-2">Community Hub</span>
+              <span className="font-heading text-lg font-bold text-heading-color">Grimwild</span>
+              <span className="ml-2 text-base text-muted-color">Community Hub</span>
             </div>
           </div>
         </Container>

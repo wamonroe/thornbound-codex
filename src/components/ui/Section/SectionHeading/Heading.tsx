@@ -11,7 +11,7 @@ const Heading = ({ as: Component = "div", className, children }: HeadingProps) =
   return (
     <Component
       className={classNames(
-        "font-heading font-bold text-heading-color text-xl uppercase",
+        "font-heading text-xl font-bold text-heading-color uppercase",
         className
       )}
     >

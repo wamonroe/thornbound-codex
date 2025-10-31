@@ -1,8 +1,9 @@
-import Heading from "@/components/ui/Section/SectionHeading/Heading";
 import { type IconDefinition } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames";
 import type { ReactNode } from "react";
+
+import Heading from "@/components/ui/Section/SectionHeading/Heading";
 
 export type SolidSectionHeadingProps = {
   icon?: IconDefinition;
@@ -15,7 +16,7 @@ const SolidSectionHeading = ({ icon, description, children }: SolidSectionHeadin
   const hasDescription = typeof description !== "undefined";
 
   const wrapperCss = classNames(
-    "flex items-baseline py-0.5 justify-between rounded-sm bg-panel-1",
+    "flex items-baseline justify-between rounded-sm bg-panel-1 py-0.5",
     {
       "border-l-8": !hasIcon
     }
@@ -25,7 +26,7 @@ const SolidSectionHeading = ({ icon, description, children }: SolidSectionHeadin
     <div className={wrapperCss}>
       <div className="flex">
         {hasIcon && (
-          <div className="bg-solid text-solid-color rounded-l-sm p-1">
+          <div className="rounded-l-sm text-solid-color bg-solid p-1">
             <FontAwesomeIcon icon={icon} />
           </div>
         )}
@@ -33,7 +34,7 @@ const SolidSectionHeading = ({ icon, description, children }: SolidSectionHeadin
           {children}
         </Heading>
       </div>
-      {hasDescription && <div className="text-sm italic pr-2">{description}</div>}
+      {hasDescription && <div className="pr-2 text-sm italic">{description}</div>}
     </div>
   );
 };

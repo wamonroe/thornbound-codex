@@ -1,8 +1,10 @@
-import Muted from "@/components/ui/Muted";
-import { getTextAlign, type TextAlign } from "@/utils/textAlign";
-import { getTextSize, type TextSize } from "@/utils/textSize";
 import classNames from "classnames";
 import type { ReactNode } from "react";
+
+import Muted from "@/components/ui/Muted";
+
+import { type TextAlign, getTextAlign } from "@/utils/textAlign";
+import { type TextSize, getTextSize } from "@/utils/textSize";
 
 export type TextProps = {
   children?: ReactNode;

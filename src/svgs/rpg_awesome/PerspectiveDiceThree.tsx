@@ -1,5 +1,6 @@
-import { getIconSize, type IconSizeValue } from "@/utils/iconSize";
 import classNames from "classnames";
+
+import { type IconSizeValue, getIconSize } from "@/utils/iconSize";
 
 type PerspectiveDiceThreeProps = {
   size?: IconSizeValue;

@@ -1,8 +1,10 @@
+import { type ReactNode, useState } from "react";
+
 import Container from "@/components/app/Container";
 import Navigation, { type PageNavigationItem } from "@/components/app/Page/Navigation";
 import Title from "@/components/app/Page/Title";
+
 import type { SpacingSize } from "@/utils/spacing";
-import { useState, type ReactNode } from "react";
 
 type PageProps = {
   bookTitle?: string;

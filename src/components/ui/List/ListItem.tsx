@@ -1,8 +1,10 @@
+import classNames from "classnames";
+import { type ReactNode, useContext } from "react";
+
 import ListContext, { type ListContextProps } from "@/components/ui/List/ListContext";
 import Muted from "@/components/ui/Muted";
+
 import { getTextSize } from "@/utils/textSize";
-import classNames from "classnames";
-import { useContext, type ReactNode } from "react";
 
 type ListItemProps = {
   children: ReactNode;

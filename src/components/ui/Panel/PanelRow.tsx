@@ -1,7 +1,8 @@
-import { getPaddingSize, type PaddingSize } from "@/utils/padding";
-import { getSpacingSize, type SpacingSize } from "@/utils/spacing";
 import classNames from "classnames";
 import type { ReactNode } from "react";
+
+import { type PaddingSize, getPaddingSize } from "@/utils/padding";
+import { type SpacingSize, getSpacingSize } from "@/utils/spacing";
 
 type PanelRowProps = {
   padding?: PaddingSize;

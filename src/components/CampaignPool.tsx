@@ -1,9 +1,10 @@
+import classNames from "classnames";
+
 import ReferenceList, { type ReferenceItem } from "@/components/ReferenceList";
 import Line from "@/components/ui/Line";
 import Muted from "@/components/ui/Muted";
 import SmallCaps from "@/components/ui/SmallCaps";
 import Text from "@/components/ui/Text";
-import classNames from "classnames";
 
 type CampaignPoolTrait =
   | string
@@ -55,16 +56,16 @@ const CampaignPool = ({ name, traits, pools, references }: CampaignPoolProps) =>
 
   return (
     <div className={containerCss}>
-      <div className="bg-solid text-solid-color rounded-t-sm px-4 py-1 font-bold">
+      <div className="rounded-t-sm text-solid-color bg-solid px-4 py-1 font-bold">
         <SmallCaps>{name}</SmallCaps>
       </div>
       {hasReferences && (
         <ReferenceList
-          className="bg-panel-3 px-4 py-1 italic text-sm space-y-1"
+          className="space-y-1 bg-panel-3 px-4 py-1 text-sm italic"
           references={references}
         />
       )}
-      <div className="bg-panel-1 px-4 py-2 rounded-b-sm">
+      <div className="rounded-b-sm bg-panel-1 px-4 py-2">
         {hasTraits && (
           <div>
             {traits.map((trait, index) => (

@@ -1,6 +1,7 @@
-import SmallCaps from "@/components/ui/SmallCaps";
-import { faLink, faLock, type IconDefinition } from "@fortawesome/free-solid-svg-icons";
+import { type IconDefinition, faLink, faLock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import SmallCaps from "@/components/ui/SmallCaps";
 
 type ReferenceItemType = "linked_to" | "blocked_by";
 export type ReferenceItem = {

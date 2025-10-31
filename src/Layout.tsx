@@ -18,7 +18,7 @@ export const links: Route.LinksFunction = () => [
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <html lang="en" className="bg-page text-base-color font-text">
+    <html lang="en" className="bg-page font-text text-base-color">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

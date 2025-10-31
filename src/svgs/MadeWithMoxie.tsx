@@ -8,7 +8,7 @@ const MadeWithMoxie = () => {
       strokeMiterlimit="2"
       clipRule="evenodd"
       viewBox="0 0 870 227"
-      className="text-base-color w-72"
+      className="w-72 text-base-color"
     >
       <path fill="currentColor" fillRule="nonzero" d="M101.9 90.5h13.7l-6.8-15-6.9 15Z" />
       <path

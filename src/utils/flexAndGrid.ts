@@ -1,7 +1,8 @@
-import { getFlexShrink, type FlexShrink } from "@/utils/flexShrink";
-import { getFlexSize, type FlexSize } from "@/utils/flexSize";
-import { getMinWidth, type MinWidth } from "@/utils/minWidth";
 import classNames from "classnames";
+
+import { type FlexShrink, getFlexShrink } from "@/utils/flexShrink";
+import { type FlexSize, getFlexSize } from "@/utils/flexSize";
+import { type MinWidth, getMinWidth } from "@/utils/minWidth";
 
 export type FlexAndGridOptions = {
   flex?: FlexSize;

@@ -1,5 +1,6 @@
-import { type TextSize } from "@/utils/textSize";
 import { createContext } from "react";
+
+import { type TextSize } from "@/utils/textSize";
 
 export type ListContextProps = {
   italic?: boolean;

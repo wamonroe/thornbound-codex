@@ -1,6 +1,7 @@
+import type { ReactNode } from "react";
+
 import Heading from "@/components/ui/Section/SectionHeading/Heading";
 import Tag from "@/components/ui/Tag";
-import type { ReactNode } from "react";
 
 export type BlankSectionHeadingProps = {
   description?: string;
