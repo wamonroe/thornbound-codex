@@ -11,8 +11,7 @@ import Text from "@/components/ui/Text";
 const navigation: PageNavigationItem[] = [
   {
     name: "Painting Monstrous Scenes",
-    anchor: "#painting-monstrous-scenes",
-    children: [{ name: "Notes on Monster Blocks", anchor: "#notes-on-monster-blocks" }]
+    anchor: "#painting-monstrous-scenes"
   },
   {
     name: "Monster Blocks",
@@ -141,9 +140,7 @@ const Chapter05 = () => {
         are just one interpretation of what these monsters might be. Change whatever you like; it
         won't break a thing.
       </Text>
-      <Heading level={3} id="notes-on-monster-blocks">
-        Notes on Monster Blocks
-      </Heading>
+      <Heading level={3}>Notes on Monster Blocks</Heading>
       <List variant="unordered">
         <List.Item>
           <Strong>Sensories</Strong>: Each entry lists colors, sights, sounds, and smells tied to
