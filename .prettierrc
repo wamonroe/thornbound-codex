@@ -7,5 +7,5 @@
   "tabWidth": 2,
   "tailwindFunctions": ["classNames"],
   "tailwindStylesheet": "./src/app.css",
-  "trailingComma": "none",
+  "trailingComma": "none"
 }
