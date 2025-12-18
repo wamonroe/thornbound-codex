@@ -1,0 +1,19 @@
+import { createContext } from "react";
+
+import { type CellPaddingSize } from "~/utils/cellPadding";
+import { type MutuallyExclusiveBooleanProps } from "~/utils/customTypes";
+import { type TextAlign } from "~/utils/textAlign";
+import { type TextSize } from "~/utils/textSize";
+import { type VerticalAlign } from "~/utils/verticalAlign";
+
+export type TableContextProps = {
+  align?: TextAlign;
+  cellPadding?: CellPaddingSize;
+  textSize?: TextSize;
+  verticalAlign?: VerticalAlign;
+  italic?: boolean;
+} & MutuallyExclusiveBooleanProps<"allCaps" | "smallCaps">;
+
+const TableContext = createContext<TableContextProps>({});
+
+export default TableContext;

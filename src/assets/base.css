@@ -1,0 +1,9 @@
+@layer base {
+  :is(b, strong) {
+    @apply font-bold;
+  }
+
+  th {
+    @apply text-left;
+  }
+}

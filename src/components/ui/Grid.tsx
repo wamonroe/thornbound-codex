@@ -1,0 +1,25 @@
+import classNames from "classnames";
+import { type ReactNode } from "react";
+
+type ColumnSize = "small" | "medium" | "large";
+type GapSize = "none" | "small" | "medium" | "large";
+type GridProps = {
+  columns?: ColumnSize;
+  gap?: GapSize;
+  children?: ReactNode;
+};
+
+const Grid = ({ columns = "medium", gap = "medium", children }: GridProps) => {
+  const gridCss = classNames("grid", {
+    "grid-cols-1 sm:grid-cols-2": columns === "large",
+    "grid-cols-1 sm:grid-cols-2 md:grid-cols-3": columns === "medium",
+    "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4": columns === "small",
+    "gap-0": gap === "none",
+    "gap-2": gap === "small",
+    "gap-4": gap === "medium",
+    "gap-6": gap === "large"
+  });
+  return <div className={gridCss}>{children}</div>;
+};
+
+export default Grid;

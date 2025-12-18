@@ -1,0 +1,31 @@
+import classNames from "classnames";
+import type { ReactNode } from "react";
+
+import Line from "~/components/ui/Line";
+import Panel from "~/components/ui/Panel";
+import Strong from "~/components/ui/Strong";
+import { getSpacingSize } from "~/utils/spacing";
+
+type CoreTalentProps = {
+  name: string;
+  growth: string;
+  children: ReactNode;
+};
+
+const CoreTalent = ({ name, growth, children }: CoreTalentProps) => {
+  return (
+    <Panel>
+      <div className={classNames("flex items-baseline justify-between")}>
+        <div className="font-heading text-xl font-bold uppercase">{name}</div>
+        <div className="font-bold uppercase">Core Talent</div>
+      </div>
+      <div className={getSpacingSize("sm")}>{children}</div>
+      <Line />
+      <div>
+        <Strong smallCaps>Growth</Strong>: {growth}
+      </div>
+    </Panel>
+  );
+};
+
+export default CoreTalent;

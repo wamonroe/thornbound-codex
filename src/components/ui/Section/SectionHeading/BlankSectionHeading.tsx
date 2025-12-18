@@ -1,0 +1,27 @@
+import type { ReactNode } from "react";
+
+import Heading from "~/components/ui/Section/SectionHeading/Heading";
+import Tag from "~/components/ui/Tag";
+
+export type BlankSectionHeadingProps = {
+  description?: string;
+  children: ReactNode;
+};
+
+const BlankSectionHeading = ({ description, children }: BlankSectionHeadingProps) => {
+  const hasDescription = description && description.length > 0;
+
+  return (
+    <div>
+      <Heading as="span">{children}</Heading>
+      {hasDescription && (
+        <>
+          {" "}
+          <Tag>{description}</Tag>
+        </>
+      )}
+    </div>
+  );
+};
+
+export default BlankSectionHeading;

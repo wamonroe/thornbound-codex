@@ -1,0 +1,66 @@
+import { faBarsStaggered } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import classNames from "classnames";
+
+import Container from "~/components/app/Container";
+import Heading from "~/components/ui/Heading";
+
+type TitleProps = {
+  bookTitle?: string;
+  title?: string;
+  pretitle?: string;
+  hasNavigation?: boolean;
+  onOpenNav?: () => void;
+};
+
+const Title = ({ bookTitle, title, pretitle, hasNavigation, onOpenNav }: TitleProps) => {
+  const hasBookTitle = bookTitle && bookTitle.length > 0;
+  const hasTitle = title && title.length > 0;
+
+  if (!hasBookTitle && !hasTitle) {
+    return null;
+  }
+
+  return (
+    <div className="sticky top-16 left-0 z-30 w-full bg-panel-2 py-2 shadow lg:top-0">
+      <Container spacing="xs">
+        {hasBookTitle && (
+          <div className="flex items-center justify-between">
+            <div className={classNames("font-heading text-2xl font-bold italic", {})}>
+              {bookTitle}
+            </div>
+            {!hasTitle && hasNavigation && (
+              <button
+                type="button"
+                className="ml-1 flex-none rounded-md p-2 hover:bg-panel-3"
+                onClick={onOpenNav}
+              >
+                <span className="sr-only">Open page navigation</span>
+                <FontAwesomeIcon icon={faBarsStaggered} aria-hidden="true" />
+              </button>
+            )}
+          </div>
+        )}
+        {hasTitle && (
+          <div className="flex items-center justify-between">
+            <Heading level={1} pretitle={pretitle} noBorder noMargin>
+              {title}
+            </Heading>
+            {hasNavigation && (
+              <button
+                type="button"
+                className="ml-1 flex-none rounded-md p-2 hover:bg-panel-3"
+                onClick={onOpenNav}
+              >
+                <span className="sr-only">Open page navigation</span>
+                <FontAwesomeIcon icon={faBarsStaggered} aria-hidden="true" />
+              </button>
+            )}
+          </div>
+        )}
+      </Container>
+    </div>
+  );
+};
+
+export default Title;

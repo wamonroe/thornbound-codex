@@ -1,0 +1,52 @@
+{
+  "name": "thornbound-codex",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "react-router build",
+    "dev": "react-router dev",
+    "lint": "eslint .",
+    "typecheck": "react-router typegen && tsc",
+    "check-updates": "npx npm-check-updates",
+    "do-updates": "npx npm-check-updates -u",
+    "prettier": "prettier ./src/**/*.{ts,tsx} --write"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^7.1.0",
+    "@fortawesome/free-brands-svg-icons": "^7.1.0",
+    "@fortawesome/free-regular-svg-icons": "^7.1.0",
+    "@fortawesome/free-solid-svg-icons": "^7.1.0",
+    "@fortawesome/react-fontawesome": "^3.1.0",
+    "@headlessui/react": "^2.2.9",
+    "@react-router/node": "^7.9.4",
+    "classnames": "^2.5.1",
+    "isbot": "^5",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-router": "^7.9.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.37.0",
+    "@react-router/dev": "^7.9.4",
+    "@tailwindcss/vite": "^4.1.14",
+    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
+    "@types/node": "^24.7.2",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@vitejs/plugin-react": "^5.0.4",
+    "eslint": "^9.37.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-react-hooks": "^7.0.0",
+    "eslint-plugin-react-refresh": "^0.4.23",
+    "globals": "^16.4.0",
+    "prettier": "3.6.2",
+    "prettier-plugin-tailwindcss": "^0.7.1",
+    "tailwindcss": "^4.1.14",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.46.1",
+    "vite": "^7.1.9",
+    "vite-tsconfig-paths": "^5.1.4"
+  }
+}

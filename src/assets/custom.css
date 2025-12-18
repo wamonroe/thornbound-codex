@@ -1,0 +1,68 @@
+.small-caps {
+  font-size: 0.875em;
+  text-transform: uppercase;
+}
+
+table.columns > :is(tbody, thead) > tr > :is(th, td):not(:first-child) {
+  @apply border-l border-muted;
+}
+
+table.striped {
+  @apply border-b-2 border-solid;
+}
+
+table.striped > thead > tr {
+  @apply bg-solid;
+}
+
+table.striped > thead > tr > th {
+  @apply text-solid-color;
+}
+
+table.striped > thead > tr:first-child > th:first-child {
+  @apply rounded-tl-sm;
+}
+
+table.striped > thead > tr:first-child > th:last-child {
+  @apply rounded-tr-sm;
+}
+
+table.striped > tbody > tr:nth-child(odd) {
+  @apply bg-panel-1;
+}
+
+table.solid {
+  @apply border-b-2 border-solid;
+}
+
+table.solid > thead > tr {
+  @apply bg-solid;
+}
+
+table.solid > thead > tr > th {
+  @apply text-solid-color;
+}
+
+table.solid > thead > tr:first-child > th:first-child {
+  @apply rounded-tl-sm;
+}
+
+table.solid > thead > tr:first-child > th:last-child {
+  @apply rounded-tr-sm;
+}
+
+table.solid > tbody > tr {
+  @apply bg-panel-1;
+}
+
+table.simple > thead > tr:last-child > th {
+  @apply border-b border-base;
+}
+
+table.simple > tbody > tr > td:not(:last-child) {
+  @apply border-r border-base;
+}
+
+.text-solid-color .text-heading-color {
+  @apply text-solid-color;
+}

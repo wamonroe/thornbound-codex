@@ -1,0 +1,23 @@
+import { type ReactNode } from "react";
+
+import ContextAwareSmallCaps from "~/components/ui/Table/ContextAwareSmallCaps";
+import { type TableContextProps } from "~/components/ui/Table/TableContext";
+import { useTableCellCss } from "~/components/ui/Table/useTableCellCss";
+
+type TableCellProps = {
+  colSpan?: number;
+  rowSpan?: number;
+  children?: ReactNode;
+} & TableContextProps;
+
+const TableCell = ({ colSpan, rowSpan, children, ...contextOverrides }: TableCellProps) => {
+  const cellCss = useTableCellCss(contextOverrides);
+
+  return (
+    <td className={cellCss} colSpan={colSpan} rowSpan={rowSpan}>
+      <ContextAwareSmallCaps {...contextOverrides}>{children}</ContextAwareSmallCaps>
+    </td>
+  );
+};
+
+export default TableCell;

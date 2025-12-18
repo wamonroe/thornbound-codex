@@ -1,0 +1,29 @@
+import classNames from "classnames";
+import { type ReactNode, useContext } from "react";
+
+import ListContext, { type ListContextProps } from "~/components/ui/List/ListContext";
+import Muted from "~/components/ui/Muted";
+import { getTextSize } from "~/utils/textSize";
+
+type ListItemProps = {
+  children: ReactNode;
+} & ListContextProps;
+
+const ListItem = ({ children, ...overrides }: ListItemProps) => {
+  const context = useContext(ListContext);
+
+  const textSize = overrides.textSize ?? context.textSize ?? "medium";
+  const muted = overrides.muted ?? context.muted;
+  const italic = overrides.italic ?? context.italic;
+
+  const itemCss = classNames(getTextSize(textSize), {
+    "[&::marker]:text-muted-color": muted,
+    italic: italic
+  });
+
+  return (
+    <li className={itemCss}>{muted ? <Muted size={textSize}>{children}</Muted> : children}</li>
+  );
+};
+
+export default ListItem;
