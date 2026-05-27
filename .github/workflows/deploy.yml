@@ -5,6 +5,9 @@ on:
     # Run workflow on pushing or merging a pull request to main branch
     branches: ["main"]
 
+env:
+  NPM_REGISTRY: ${{ secrets.NPM_REGISTRY }}
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
