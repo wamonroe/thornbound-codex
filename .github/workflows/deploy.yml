@@ -5,9 +5,6 @@ on:
     # Run workflow on pushing or merging a pull request to main branch
     branches: ["main"]
 
-env:
-  NPM_REGISTRY: ${{ secrets.NPM_REGISTRY }}
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -23,11 +20,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
           cache: npm
 
       # Install dependencies and build
-      - run: npm install
+      - run: npm ci
       - run: npm run build
 
       # Upload build folder (dist) as artifact
